@@ -1,0 +1,1160 @@
+/* Common styles */
+*:disabled {
+    cursor: not-allowed;
+}
+
+body {
+    font-size: 14pt;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+    background-color: #F6F6F6;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: lightblue;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+    color-stop(.5, rgba(255, 255, 255, .2)),
+    color-stop(.5, transparent), to(transparent));
+}
+
+
+label {
+    vertical-align: baseline;
+}
+
+input:active, select:active {outline:none;}
+
+canvas {
+    Position: fixed;
+    top: 50px;
+    left: 0;
+    background-color: #eee;
+    display: block; //margin: 0 auto;
+    z-index: -9999;
+}
+
+#logo-text {
+  
+}
+
+.hidden {
+    width: 0;
+    opacity: 0;
+}
+
+
+.blockheader {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    background: lightblue;
+    font-family: 'Pathway Gothic One', sans-serif;
+    line-height: 27px;
+}
+
+.blockheader select {
+    height: 20px;
+    width: 63px;
+    margin-top: 3px;
+    margin-right: 3px;
+    padding-right: 6px;
+    float: right;
+    color: dimgray;
+    background: lightblue;
+    border: solid 0.1px lightblue;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 0.8em;
+    text-align: right;
+    text-align-last: right;
+}
+
+.blockheader select > option {
+    background-color: whitesmoke;
+    opacity: 0.5;
+    text-align: right;
+    text-align-last: right;
+}
+
+.left {
+    text-align: left;
+    padding-left: 5px
+}
+
+.blue-text {
+    color: blue;
+}
+
+.red-text {
+    color: red;
+}
+
+.left-text {
+    text-align: left;
+}
+
+.right-text {
+    text-align: right;
+}
+
+
+.refresh {
+    position: absolute;
+    margin-top: 2px;
+    right: 35px;
+    transition: 0.5s ease-in-out;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.refresh label { 
+    cursor: pointer;   
+}
+
+.refresh:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.refresh label::after {
+    position: absolute;
+    content: "";
+    width: 27px;
+    height: 24px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAYCAQAAAChSU5wAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAOcSURBVDjLXZNLbJRlFIaf7/uvc+tMO72mhXJpLSAVK0mLhAoWQyyohIUL3YimJmqIG0PUjRtRoy4IUVeGxEtcayqpGgnFYhNbapFSiWmshVaE6WXauf/X+V10INGzfHOekzfnzStGANApcI44dTgsdqf7072Fdj+m5EOzydG678XPcUpkOUQNFgDiLpbnOzaQ7br2zmK/h8RAwcfBRyF5oeOtxtE7HKC2ginPAyARzHPj1YlvMu0mBhoSkGjoKGQ2L7yAF7vUjo6/vi+RSDSi/P321BlBDMl/RxJFY+rU7EcxDCQKCsozeHjEuPDspTMRtMqqjVWxuK4oaCx26+nt4zl8fMSXBMTIJc6ulokQIHCwqb3Z8JO9LBK53jvtGiYBghIeAxvrFzII1CwCheEPXRL4CIp4bDt53+lGf44EKtMvT3/syRhlQmQ4/8nhp/KUEYOEWa0+my6hYGAD/X1yOE+SearQkIQeGpxwhAE4wIutTfM5ZBaHmcMWMSJ4WHS/d2g4io1PiTxl4jwy2fOaVYnJ4vejazjIAjmu7XY5wH58os7Od29Sx1YsmtjBHnZQ4tHTDbeK6zFzqzPBJtSrmNB6EAXo5cbl1XwKKBNiKyYWFqk+Lxy/vdIMoJHfe/1YyBVfs9qZuqjXuIAGqeYnk5cLKOgskMXAZOGJ898KopQBQRHoe07qj6em/BofgcCn1DAzXjhaSwSDVqoBm23njvWYKYcA8FBKvUfavpCqfv8r8V/tSshVf+46bio6EWI0UEuYGA47xx8YLSIAj7bJjqEl1NZBl1SLu1tfB6s3fm7iEpBlHthAmABJzb6NZNCI0DHXSBUyTYb4jKg8OJv8402NFf5injQKWfI0cnuA+k6iKHSyeSJMBDGCTik5tuyhAS4KXV3ubzaQJoGCjrll8rpjxFjDo4oHtyTmbGSONKxUfWUjAB2PsfHU8RAGKjomS0//csU2DCzimIR+lHNLZBEXCTAp1o+mBAYBAhefxBVzxFnSqu19az0SvfJFh562+KwFiKsARJkemPg0fK9rDgEKPgK9ogTk6Xpj1/v59SKdQCIR1E0uJ5b3qBVQQUWiolSgMgXqP9t7UiVARUV5iaBiofCD4Rf6fCTif/128Gn6oPZENYIyAcFdVwIPj+ZTm/aHRj0sPAIgwMPGITTR2t/yeoB775CYAkDFYRoTiYX/WPFI4WG/pRwWJfWf0FhoSB0KE2CxnQgeAP8COxVm7UoUlYQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDItMjVUMDg6MDQ6NDgtMDc6MDC2KNrBAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTAyLTI1VDA4OjA0OjQ4LTA3OjAwx3VifQAAAABJRU5ErkJggg==') center no-repeat;
+    transition: .1s ease-in-out;
+    border-radius: 15px;
+}
+
+
+
+.refresh input[type=checkbox]:checked+label::after {
+    background: url('data:image/png;base64,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') center no-repeat;
+    transition: .5s ease-in-out;
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type='number'] {
+    height: 18px;
+    line-height: 18px;
+    background: whitesmoke;
+    padding: 4px;
+}
+
+iframe {
+    width: 617px;
+    height: 340px;
+    border: none;
+    margin-top: 30px
+}
+
+.app__header {
+    width: 100%;
+    height: 50px;
+    background: lightblue;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+.header-wrapper {
+    width: 1460px;
+    margin: 0 auto;
+}
+
+.logo-text {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+}
+
+
+.app__content {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: flex;
+}
+
+.app-block {
+    //border: solid 1px black;
+    width: min-content;
+    width: -moz-min-content;
+    width: -webkit-min-content;
+}
+
+.app-block__item {
+    //border: dashed 2px black;
+    display: flex;
+    width: max-content;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.app-block__item__elem {
+    //border: dotted 1px red;
+    display: block;
+}
+
+select,
+input {
+    font-size: 1em;
+}
+
+select {
+    font-family: 'Tulpen One', cursive;
+    text-align: left;
+    width: 66.5px;
+}
+
+input {
+    text-align: left;
+    padding-left: 3px;
+    width: 60px;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 0.8em;
+}
+
+.shadowed {
+    box-shadow: -1px 4px 7px 0px rgba(0, 0, 0, .1);
+}
+
+.shadowed-black {
+    box-shadow: 10px 10px 20px #000000;
+}
+
+/* Common styles end*/
+
+
+/* Settings styles start*/
+
+.trading-items {
+    display: block;
+}
+
+.trading-item {
+    display: flex;
+    background-color: white;
+}
+
+.trading-item__wrapper {
+    display: block;
+    padding: 7px;
+    margin-top: 5px;
+    background-color: #eee;
+}
+
+
+/* Settings styles end*/
+
+
+/* Graph styles start*/
+
+.graph-item {
+    position: relative;
+    height: 370px;
+    width: 620px;
+}
+
+
+.pair-info {
+    position: absolute;
+    margin-top: 2px;
+    left: 43px;
+    opacity: 0.6;
+}
+
+.close {
+    position: absolute;
+    padding: 3px;
+    top: -5px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.4;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 9px;
+    content: '';
+    height: 16.5px;
+    width: 2px;
+    background-color: red;
+    border: dotted 0.5px
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.daily-volume {
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Graph styles end*/
+
+
+/* Trading mode start*/
+
+.trading-mode-item {
+    width: 220px;
+    height: 400px;
+    margin-left: 10px;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.trading-mode__inner {
+    display: block;
+}
+
+.trading-mode__inner select {
+    width: 63px;
+    height: 25px;
+    float: right;
+    margin-left: 2.5px;
+}
+
+.manual-trading__inner {
+    display: block;
+}
+
+.manual-trading__inner input {
+    width: 162px;
+    height: 18px;
+    line-height: 18px;
+    background: whitesmoke;
+    padding: 4px;
+}
+
+.manual-trading__inner select {
+    height: 24px;
+    position: absolute;
+    padding: 0 5px;
+    top: 0.5px;
+    right: 2px;
+    line-height: 24px;
+    border: solid 0.1px whitesmoke;
+    background: #fbfbfb;
+    text-align: center;
+    text-align-last: center;
+}
+
+/* Flat Button start */
+
+.btn {
+    position: relative;
+    background: #82cee4;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#82cee4), color-stop(100%,#3198b6));
+    background: -webkit-linear-gradient(top, #82cee4 0%,#3198b6 100%);
+    background: -o-linear-gradient(top, #82cee4 0%,#3198b6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#82cee4),to(#3198b6));
+    background: linear-gradient(to bottom, #82cee4 0%,#3198b6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82cee4', endColorstr='#3198b6',GradientType=0 );
+    font-family: 'Abel';
+    color: white;
+    border: 1px solid #2f8ca7;
+    border-radius: 4px;
+    font-size: 0.85em;
+    padding: 0.2em;
+    font-weight: normal;
+    outline: none;
+    width: 48%;
+}
+.btn:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Flat Button end */
+
+.modal-content-wrapper {
+    padding: 5px 20px;
+    background: ghostwhite;
+}
+
+.modal-content-wrapper p {
+    text-align:justify;
+}
+
+.closeModalbtn {
+    float: right;
+    width: 33%;
+    margin-bottom: 8px;
+    margin-top: 17px;
+    border-radius: 1px;
+}
+
+/* Placeholder style start */
+
+input::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.6s ease;}
+input::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.6s ease;}
+input:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.6s ease;}
+input:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.6s ease;}
+input:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.6s ease;}
+input:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.6s ease;}
+input:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.6s ease;}
+input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.6s ease;}
+
+/* Placeholder style end */
+
+.crypto-amount,
+.currency-price {
+    position: relative;
+    height: 30px;
+}
+
+.auto-trading__inner {
+    display: block;
+    position: relative
+}
+
+.auto-trading__inner label {
+    line-height: 27px;
+}
+
+.auto-trading__inner select {
+    width: 55px;
+    height: 24px;
+    /* position: absolute; */
+    /* padding: 0 5px; */
+    /* top: 0.5px; */
+    /* right: 2px; */
+    line-height: 24px;
+    border: solid 0.1px whitesmoke;
+    background: #fbfbfb;
+}
+
+.curr-pair, .check-period, .profit, .max-purch, .order-life-time, .stop-loss, .take-profit, .use-macd {
+    display: block;
+}
+
+.curr-pair__label {
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.curr-pair__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.check-period__label {
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.check-period__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.profit__label {
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.profit-persent-value {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 0.8em
+}
+
+.profit__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.max-purch__label {
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.max-purch__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.order-life-time__label {
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.order-life-time__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.stop-loss__label {
+    color: red;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.stop-loss__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.take-profit__label {
+    color: red;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.take-profit__values {
+    float: right;
+    display: inline-block;
+    display: -moz-inline-block;
+    display: -webkit-inline-block;
+}
+
+.use-macd-caption {
+    display: flex;
+}
+
+.use-macd-caption__label {
+    width: 50%;
+    text-align: left;
+    display: block;
+}
+
+.use-macd-caption__state {
+    width: 50%;
+    text-align: right;
+    display: block;
+}
+
+.use-macd-caption__state input[type=checkbox] {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.controls-wrapper {
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: ghostwhite;
+}
+
+.orders-list label {
+    margin-left: 10px;
+    line-height: 26px;
+}
+
+.order-creation-hint,
+.order-creation-buttons {
+    margin: 7px 0px;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.hint-row {
+    display: flex;
+    justify-content: space-between;
+    /*padding: 0 10px;*/
+}
+
+.hint-info {
+    float: left;
+}
+
+.hint-value {
+    font-family: VT323, sans-serif;
+}
+
+.hint-value label {
+    margin-right: 5px;
+    line-height: 26px;
+}
+
+.button {
+    width: 49%
+}
+
+.divider {
+    color: #828282;
+    text-align: center;
+    font-size: 0.9em;
+    ;
+    /*background: #fff;*/
+    font-weight: 500;
+    position: relative;
+    border: none;
+    padding: 0;
+}
+
+.divider label::before {
+    display: block;
+    content: '';
+    height: 1px;
+    width: 33px;
+    background: #e4e6e9;
+    position: absolute;
+    top: 50%;
+    margin-left: 10px;
+}
+
+.divider label::after {
+    display: block;
+    content: '';
+    height: 1px;
+    width: 33px;
+    background: #e4e6e9;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+}
+
+.buy-order-info {
+    margin-top: 5px;
+}
+
+.sell-order-info {
+    margin-top: 7px;
+}
+
+.sell-order-info__header {
+    display: flex;
+    font-size: 0.88em;
+    background: lightblue;
+}
+
+.buy-order-info__header {
+    display: flex;
+    font-size: 0.88em;
+    background: #F44336;
+}
+
+.order-info__header-col {
+    display: block;
+    width: 33.33%;
+    text-align: center;
+}
+
+.order-info__body {
+    display: flex;
+    border: solid 1px #f2f2f2;
+}
+
+.order-info__body-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+
+/* Controls styles end*/
+
+
+/* Orders info styles start*/
+
+.info {
+    display: block;
+}
+
+.market-orders-wrapper {
+    display: inline-flex;
+}
+
+.sell-orders,
+.buy-orders {
+    display: block;
+}
+
+.orders-list {
+    height: 288px;
+}
+
+.orders-list__wrapper {
+    margin-left: 7px;
+}
+
+
+
+.orders-list__header {
+    display: flex;
+    font-family: 'Pathway Gothic One', sans-serif;
+    background: #f2f2f2;
+}
+
+.orders-list__header-col {
+    display: block;
+    width: 77px;
+    text-align: center;
+}
+
+.order-content__scrollable {
+    height: 335px;
+    overflow: auto;
+    background: #eeeeee24;
+    border: solid 1px #f2f2f2;
+    font-family: 'Abel', sans-serif;
+    font-size: 0.7em;
+}
+
+.order-content__scrollable:hover {
+    //height: 448px;
+}
+
+
+/* webkit scrollbar style */
+
+.order-content__scrollable::-webkit-scrollbar-track, #console::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.order-content__scrollable::-webkit-scrollbar, #console::-webkit-scrollbar {
+    width: 7px;
+    background-color: #F6F6F6;
+}
+
+.order-content__scrollable::-webkit-scrollbar-thumb, #console::-webkit-scrollbar-thumb {
+    background-color: lightblue;
+
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+    color-stop(.5, rgba(255, 255, 255, .2)),
+    color-stop(.5, transparent), to(transparent));
+}
+
+
+/* webkit scrollbar style end*/
+
+.order-content__scrollable label {
+    margin-left: 5px;
+    color: black;
+}
+
+.order-table__row {
+    display: flex;
+}
+
+.order-table__cell {
+    display: block;
+    border: dotted 1px lightgray;
+    width: 77px;
+    overflow: hidden;
+}
+
+
+/* Orders info styles end*/
+
+
+/* Menu styles start*/
+
+.app__header-menu {}
+
+ul {
+    list-style: none;
+    /*убираем маркеры списка*/
+    margin: 0;
+    /*убираем отступы*/
+    padding-left: 0;
+    /*убираем отступы*/
+}
+
+.app__header-menu a {
+    text-decoration: none;
+    /*убираем подчеркивание текста ссылок*/
+    background: lightblue;
+    /*добавляем фон к пункту меню*/
+    padding: 0px 15px;
+    /*добавляем отступ*/
+    font-size: 1.2em;
+    font-family: 'Pathway Gothic One', sans-serif;
+    /*меняем шрифт*/
+    line-height: 40px;
+    /*ровняем меню по вертикали*/
+    display: block;
+    -moz-transition: all 0.3s 0.01s ease;
+    /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.2s 0.01s ease;
+
+    text-shadow: 0.5px 0.5px 0 whitesmoke,
+    0.5px -0.5px 0 whitesmoke,
+    -0.5px 0.5px 0 whitesmoke,
+    -0.5px -0.5px 0 whitesmoke;
+    color: steelblue;
+    cursor: pointer;
+}
+
+.app__header-menu a:hover {
+    text-shadow: 0.8px 0.8px 0 white,
+    0.8px -0.8px 0 white,
+    -0.8px 0.8px 0 white,
+    -0.8px -0.8px 0 white;
+    color: #F44336;
+    ;
+    /*добавляем эффект при наведении*/
+}
+
+.app__header-menu li {
+    float: left;
+    /*Размещаем список горизонтально для реализации меню*/
+    position: relative;
+    /*задаем позицию для позиционирования*/
+    border-left: solid 2px lightblue;
+    width: 156px;
+    text-align: center;
+}
+
+
+/* Стили для скрытого выпадающего меню, которого нет */
+
+.app__header-menu li>ul {
+    position: absolute;
+    top: 40px;
+    left: -2px;
+    display: none;
+}
+
+.app__header-menu li:hover {
+    border-left: solid 2px steelblue;
+    text-shadow: none;
+}
+
+
+/*Делаем скрытую часть видимой*/
+
+.app__header-menu li:hover>ul {
+
+    display: block;
+    width: auto;
+    /*Задаем ширину выпадающего меню*/
+}
+
+.app__header-menu li:hover>ul>li {
+    float: none;
+    /*Убираем горизонтальное позиционирование*/
+}
+
+.app__header-menu li>ul>li>a {
+    text-align: left;
+    line-height: 27px;
+    font-size: 0.9em;
+    color: #333; //width: 90px;
+    padding-left: 32px; //background: whitesmoke;
+    border-left: solid 2px lightblue;
+    border-top: dashed 0.5px whitesmoke;
+    text-shadow: 0.5px 0.5px 0 lightblue,
+    0.5px -0.5px 0 lightblue,
+    -0.5px 0.5px 0 lightblue,
+    -0.5px -0.5px 0 lightblue;
+}
+
+.app__header-menu li>ul>li:hover>a {
+    text-shadow: none;
+}
+
+
+/* Menu styles end*/
+
+
+/* Blance styles start*/
+
+.tooltip {
+    position: relative;
+    /* Делаем элемент родительским для всплывающих подсказок */
+    cursor: pointer;
+}
+
+.tooltip span {
+    position: absolute;
+    /* Выводим элемент из потока */
+    margin-left: -30000px;
+    /* И прячем далеко за краем экрана */
+    background-color: whitesmoke;
+    /* Фон всплывающего блока*/
+    color: black;
+    /* Цвет текста */
+    padding: 5px;
+    /* Отступы */
+    -webkit-border-radius: 5px;
+    /* Закругляем уголки */
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 0px;
+}
+
+.tooltip:hover span {
+    /* При наведении */
+    margin-left: 0;
+    /* Возвращаем из далекого заэкранного края блок на место */
+    width: auto;
+    /* Задаем ширину */
+    z-index: 9999;
+    /* Помещаем на самый верх */
+    /* Позиционируем относительно родительского блока */
+    top: 37px;
+    /* Отступ сверху */
+    left: -257px;
+    /* Отступ слева */
+}
+
+.tooltip span:before {
+    content: '';
+    /* Добавили контент */
+    width: 0;
+    /* Спрятали его, превратив в 0 */
+    height: 0;
+    border-bottom: 10px solid whitesmoke;
+    /* Нижним бордером задаем цвет и высоту треугольника */
+    border-right: 0px solid transparent;
+    /* Правым - ширину треугольника вправо */
+    border-left: 13px solid transparent;
+    /* Левым - ширину треугольника влево */
+    position: absolute;
+    /* Позиционируем относительно родительского блока */
+    top: -10px;
+    right: 0px;
+}
+
+
+.balance {
+    width: auto;
+    text-shadow: none;
+    line-height: 25px;
+}
+
+.balance-informer {}
+
+.balance__header {
+    display: flex;
+    font-size: 0.9em;
+    font-family: 'Pathway Gothic One', sans-serif;
+    background: lightblue;
+    width: 100%;
+}
+
+.balance__header-col {
+    display: block;
+    width: 90px;
+    text-align: left;
+    padding: 5px 0px 5px 0px;
+}
+
+.balance__header-col label {
+    margin-left: 5px;
+    color: #fafafa;
+}
+
+.balance__content {
+    background: white; //border: solid 1px #f2f2f2;
+    font-family: 'Abel', sans-serif;
+    font-size: 0.7em;
+    text-align: left;
+    padding: 0 3px;
+    padding-bottom: 3px;
+}
+
+.balance__content label {
+    margin-left: 5px;
+}
+
+.balance__content__row {
+    display: flex;
+}
+
+.balance__content__cell {
+    display: block;
+    border: dotted 0.1px lightgray;
+    width: 90px;
+}
+
+
+/* Blance styles end*/
+
+.latest-deals {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    font-family: 'Abel', sans-serif;
+    font-size: 0.8em;
+    padding: 5px;
+    background-color: white; 
+}
+
+.deal {
+    position: relative;
+    display: block;
+    min-width: 77px; 
+    max-width: 87px;
+    text-align: center;
+    transition: .9s ease-in-out;
+    opacity: 0.9;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+
+.deal:before, .deal:after{
+
+}
+
+.deal:after{
+
+}
+
+.deal-cell__buy {
+    display: block;
+    border: dotted 1px;
+    background: lightblue;
+    color: blue;
+}
+
+.deal-cell__sell {
+    display: block;
+    border: dotted 1px;
+    background: #F44336;
+    color: red;
+}
+
+.deal-cell__price {
+    display: block;
+    color: black;
+    padding: 0 3px;
+}
+
+.deal-cell__type {
+    display: block;
+    background: white;
+}
+
+/* logo */
+
+.bluelight {
+  display: table;
+  overflow: visible;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  text-align: center;
+  text-transform: uppercase;
+  color: lightblue;
+  text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.bluelight a {
+  display: table-cell;
+  font-family: 'Wallpoet', cursive;
+  font-size: 1.3em;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: none;
+  transition: background 1s, border-width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), text-shadow 0.5s;
+  color: #fff;
+  text-shadow: 0 0 10px #0aafe6, 0 0 10px #0aafe6;
+  box-shadow: 0 0 0 rgba(10, 175, 230, 0), inset 0 0 0 rgba(10, 175, 230, 0);
+  border: 0 dotted rgba(10, 175, 230, 0);
+}
+
+.bluelight:before, .bluelight:after, .bluelight a:before, .bluelight a:after {
+  transition: 0.2s ease-in-out;
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 60px dashed transparent;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+.bluelight:before {
+  animation: rotate 20s linear 0s infinite;
+  width: 180%;
+  height: 180%;
+  border: 3px dotted rgba(10, 175, 230, 0.3);
+  z-index: -1;
+}
+.bluelight:after {
+  animation: rotate 10s linear 0s infinite reverse;
+  border: 80px dashed rgba(10, 175, 230, 0.1);
+  width: 160%;
+  height: 160%;
+  z-index: -2;
+}
+.bluelight a:before {
+  animation: rotate 5s ease-in-out 0s infinite alternate;
+  width: 120%;
+  height: 120%;
+  border: 50px dashed rgba(10, 175, 230, 0.3);
+}
+.bluelight a:after {
+  animation: rotate 5s linear 0s infinite;
+  border: 18px dashed rgba(10, 175, 230, 0.3);
+  width: 120%;
+  height: 120%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* logo end */
