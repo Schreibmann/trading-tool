@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "crypto-js": "^3.1.9-1",
+    "hoek": "^5.0.3",
     "react": "^16.4.1",
     "react-awesome-modal": "^2.0.3",
     "react-dom": "^16.4.1",
