@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import TradingItemsList from './components/TradingItemsList.jsx';
-import Modal from 'react-awesome-modal';
 import Header from './components/Header.jsx';
 import Canvas from './components/Canvas.jsx';
 import Logo from './components/logo.jsx';
+import store from './store';
 import './view/reset.css';
 import './view/main.css';
 
@@ -13,28 +14,6 @@ const PAIRS = ['BTC_USD','BTC_EUR','BTC_RUB','BTC_UAH','BTC_PLN','BCH_BTC','BCH_
                'WAVES_BTC','WAVES_RUB','KICK_BTC','KICK_ETH'];
 
 class App extends Component {
-
-constructor(props) {
-
-    super(props);
-
-      this.state = {
-        
-        modalText: '',
-        showModal : false,
-        tradingItemsList: [{crypto: 'BTC', currency: 'USD'}]
-      };
-}
-
-componentDidMount() {
-    let displayWidth = window.screen.availWidth;
-
-    if (displayWidth < 1600) {
-      this.openModal('Ресурс оптимизирован под разрешение экрана 1600x900 и актуальную версию Google Chrome или Opera. На Вашем устройстве может отображаться некорректно.')
-    }
-    //this.tradingItemsList = this.state.tradingItemsList;
-    //console.log(JSON.stringify(this.tradingItemsList));
-}
 
 addTradingItem() {
   let newTradingItemsList = this.state.tradingItemsList;
@@ -76,49 +55,27 @@ setCurrency(e, id) {
   
 }
 
-openModal(msg) {
-  this.setState({
-    modalText: msg,
-    showModal : true
-  });
-}
-
-closeModal() {
-  this.setState({
-    modalText: '',
-    showModal : false
-  });
-}
-
   render() {    
 
     return (
-      <div className="container">
-        <Modal 
-          visible={this.state.showModal}  
-          width="666px"              
-          effect="fadeInDown"
-          onClickAway={() => this.closeModal()}
-        >
-          <div className="modal-content-wrapper shadowed">
-            <p>{this.state.modalText}</p>
-            <button className="closeModalbtn btn" onClick={() => this.closeModal()}>Ясно</button>                    
-           </div>
-        </Modal>
-        <Header add={() => this.addTradingItem()}/>          
-        <Canvas/>
-        <Logo/>
-        <div className="app__content">       
-          <TradingItemsList 
-            tradingItemsList={this.state.tradingItemsList}
-            close={(idx) => this.removeTradingItem(idx)} 
-            setCrypto={(event, idx) => this.setCrypto(event, idx)}
-            setCurrency={(event, idx) => this.setCurrency(event, idx)}
-          />
-        </div>  
-      </div>
+      <Provider store={store}>
+        <div className="container">
+          <Header add={() => this.addTradingItem()}/>          
+          <Canvas/>
+          <Logo/>
+          <div className="app__content">       
+            <TradingItemsList 
+              close={(idx) => this.removeTradingItem(idx)} 
+              setCrypto={(event, idx) => this.setCrypto(event, idx)}
+              setCurrency={(event, idx) => this.setCurrency(event, idx)}
+            />
+          </div>  
+        </div>
+      </Provider>
     );
   }
 }
+
+
 
 export default App;

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { getUserInfo, getUserOrders } from '../lib/apiCalls.js';
 import ApiKeysForm from '../components/ApiKeysForm.jsx';
+import { showApiKeysForm } from '../actions/apiKeysFormActions';
+import { addTradingItem } from '../actions/tradingItemsListActions';
+import Modal from 'react-awesome-modal';
+import { showModal, hideModal } from '../actions/modalActions';
+import { connect } from 'react-redux';
 
 class Header extends Component {
 
@@ -9,7 +14,6 @@ class Header extends Component {
     super(props);
 
     this.state = {
-        apiKeysForm: 'notShown',
         balances: null,
         reserved: null,
         userOrders: ''
@@ -62,18 +66,6 @@ class Header extends Component {
       });
   }
 
-  showApiKeys() {
-  this.setState({
-    apiKeysForm: 'shown'
-  });
-}
-
-hideApiKeys() {
-  this.setState({
-    apiKeysForm: 'notShown'
-  });
-}
-
   render() {
 
     let balances =[];
@@ -105,12 +97,23 @@ hideApiKeys() {
 
     return (
     <div className="header wrapper">
+      <Modal 
+        visible={this.props.modal.show}  
+        width="666px"              
+        effect="fadeInDown"
+        onClickAway={() => this.props.hideModal()}
+      >
+        <div className="modal-content-wrapper shadowed">
+          <p>{this.props.modal.text}</p>
+          <button className="closeModalbtn btn" onClick={() => this.props.hideModal()}>Ясно</button>                    
+        </div>
+      </Modal>
       <div className="app__header shadowed">
         <div className="header-wrapper">
           <div className="app__header-menu">
           <ul>
-            <li className="shadowed" onClick={() => this.props.add()}><a>Add block</a></li>     
-            <li className="shadowed"><a>Help</a></li>        
+            <li className="shadowed" onClick={() => this.props.addTradingItem()}><a>Add block</a></li>     
+            <li className="shadowed" onClick={() => this.props.showModal('test ok')}><a>Test modal</a></li>        
             <li className="shadowed"> 
               <a>
                 <div className="balance-informer">
@@ -145,7 +148,7 @@ hideApiKeys() {
                 </div>
               </a>            
             </li> 
-            <li className="shadowed" onClick={() => this.showApiKeys()}>
+            <li className="shadowed" onClick={() => this.props.showApiKeysForm()}>
               <a>Api keys</a>              
             </li>    
           </ul>
@@ -153,11 +156,16 @@ hideApiKeys() {
           </div>
         </div>
       </div>
-      <ApiKeysForm shown={this.state.apiKeysForm} hideApiKeys={() => this.hideApiKeys()}/>
+      <ApiKeysForm shown={this.props.apiKeysForm}/>
     </div>
 
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  modal: state.modal,
+  apiKeysForm: state.apiKeysForm
+});
+
+export default connect(mapStateToProps, { addTradingItem, showModal, hideModal, showApiKeysForm })(Header);
