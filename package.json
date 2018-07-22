@@ -5,13 +5,14 @@
   "private": true,
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "react": "^16.2.0",
+    "hoek": "^5.0.3",
+    "react": "^16.4.1",
     "react-awesome-modal": "^2.0.3",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-scripts": "1.0.17",
+    "react-dom": "^16.4.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",
