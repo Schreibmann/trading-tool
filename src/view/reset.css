@@ -15,57 +15,65 @@ input,
 label,
 select,
 button,
-textarea
-{
-    margin:0;
-    border:0;
-    padding:0;
+textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
     /*display:inline-block;*/
-    vertical-align:middle;
-    white-space:normal;
-    background:none;
-    line-height:1;
-    
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+    line-height: 1;
+
     /* Browsers have different default form fonts 
     font-size:13px;
     font-family:Arial;*/
 }
 
+
 /* Remove the stupid outer glow in Webkit */
-input:focus, input:active, select:focus, select:active
-{
-    outline:0;
+
+input:focus,
+input:active,
+select:focus,
+select:active {
+    outline: 0;
 }
 
-input::-moz-focus-inner, select::-moz-focus-inner {
-  border: 0 !important;
+input::-moz-focus-inner,
+select::-moz-focus-inner {
+    border: 0 !important;
 }
+
 
 /* Box Sizing Reset
 -----------------------------------------------*/
 
+
 /* All of our custom controls should be what we expect them to be */
+
 input,
-textarea
-{
-    -webkit-box-sizing:content-box;
-    -moz-box-sizing:content-box;
-    box-sizing:content-box;
+textarea {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
+
 /* These elements are usually rendered a certain way by the browser */
+
 button,
 input[type=reset],
 input[type=button],
 input[type=submit],
 input[type=checkbox],
 input[type=radio],
-select
-{
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
+select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 
 /* Text Inputs
 -----------------------------------------------*/
@@ -83,43 +91,43 @@ input[type=tel],
 input[type=text],
 input[type=time],
 input[type=url],
-input[type=week]
-{
-}
+input[type=week] {}
+
 
 /* Button Controls
 -----------------------------------------------*/
 
 input[type=checkbox],
-input[type=radio]
-{
-    width:13px;
-    height:13px;
+input[type=radio] {
+    width: 13px;
+    height: 13px;
 }
+
 
 /* File Uploads
 -----------------------------------------------*/
 
-input[type=file]
-{
+input[type=file] {}
 
-}
 
 /* Search Input
 -----------------------------------------------*/
 
+
 /* Make webkit render the search input like a normal text field */
-input[type=search]
-{
-    -webkit-appearance:textfield;
-    -webkit-box-sizing:content-box;
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
 }
 
+
 /* Turn off the recent search for webkit. It adds about 15px padding on the left */
-::-webkit-search-decoration
-{
-    display:none;
+
+::-webkit-search-decoration {
+    display: none;
 }
+
 
 /* Buttons
 -----------------------------------------------*/
@@ -127,46 +135,44 @@ input[type=search]
 button,
 input[type="reset"],
 input[type="button"],
-input[type="submit"]
-{
+input[type="submit"] {
     /* Fix IE7 display bug */
-    overflow:visible;
-    width:auto;
+    overflow: visible;
+    width: auto;
 }
 
+
 /* IE8 and FF freak out if this rule is within another selector */
-::-webkit-file-upload-button
-{   
-    padding:0;
-    border:0;
-    background:none;
+
+::-webkit-file-upload-button {
+    padding: 0;
+    border: 0;
+    background: none;
 }
+
 
 /* Textarea
 -----------------------------------------------*/
 
-textarea 
-{
+textarea {
     /* Move the label to the top */
-    vertical-align:top;
-    
+    vertical-align: top;
+
     /* Turn off scroll bars in IE unless needed */
-    overflow:auto;
+    overflow: auto;
 }
+
 
 /* Selects
 -----------------------------------------------*/
 
-select
-{
+select {}
 
-}
-
-select[multiple] 
-{
+select[multiple] {
     /* Move the label to the top */
-    vertical-align:top;
+    vertical-align: top;
 }
+
 
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
@@ -174,8 +180,9 @@ select[multiple]
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
+    height: auto;
 }
+
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
@@ -183,9 +190,12 @@ select[multiple]
  */
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
 }
+
 
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
@@ -193,8 +203,9 @@ select[multiple]
 
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
+
 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -202,60 +213,74 @@ select[multiple]
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
 }
+
 
 /* Interactive
    ========================================================================== */
+
 
 /*
  * Add the correct display in IE 9-.
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
+details,
+
+/* 1 */
+
 menu {
-  display: block;
+    display: block;
 }
+
 
 /*
  * Add the correct display in all browsers.
  */
 
 summary {
-  display: list-item;
+    display: list-item;
 }
+
 
 /* Scripting
    ========================================================================== */
+
 
 /**
  * Add the correct display in IE 9-.
  */
 
 canvas {
-  display: inline-block;
+    display: inline-block;
 }
+
 
 /**
  * Add the correct display in IE.
  */
 
 template {
-  display: none;
+    display: none;
 }
+
 
 /* Hidden
    ========================================================================== */
+
 
 /**
  * Add the correct display in IE 10-.
  */
 
 [hidden] {
-  display: none;
+    display: none;
 }
+
 
 /**
  * 1. Change the font styles in all browsers (opinionated).
@@ -267,11 +292,16 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+    font-family: sans-serif;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
 }
+
 
 /**
  * Show the overflow in IE.
@@ -279,9 +309,11 @@ textarea {
  */
 
 button,
-input { /* 1 */
-  overflow: visible;
+input {
+    /* 1 */
+    overflow: visible;
 }
+
 
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
@@ -289,9 +321,11 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
-  text-transform: none;
+select {
+    /* 1 */
+    text-transform: none;
 }
+
 
 /**
  * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
@@ -300,11 +334,16 @@ select { /* 1 */
  */
 
 button,
-html [type="button"], /* 1 */
+html [type="button"],
+
+/* 1 */
+
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; /* 2 */
+    -webkit-appearance: button;
+    /* 2 */
 }
+
 
 /**
  * Remove the inner border and padding in Firefox.
@@ -314,9 +353,10 @@ button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
+    border-style: none;
+    padding: 0;
 }
+
 
 /**
  * Restore the focus styles unset by the previous rule.
@@ -326,5 +366,5 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
+    outline: 1px dotted ButtonText;
 }

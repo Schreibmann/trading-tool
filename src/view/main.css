@@ -1,4 +1,5 @@
 /* Common styles */
+
 *:disabled {
     cursor: not-allowed;
 }
@@ -29,7 +30,10 @@ label {
     vertical-align: baseline;
 }
 
-input:active, select:active {outline:none;}
+input:active,
+select:active {
+    outline: none;
+}
 
 canvas {
     Position: fixed;
@@ -40,9 +44,7 @@ canvas {
     z-index: -9999;
 }
 
-#logo-text {
-  
-}
+#logo-text {}
 
 .hidden {
     width: 0;
@@ -76,7 +78,7 @@ canvas {
     text-align-last: right;
 }
 
-.blockheader select > option {
+.blockheader select>option {
     background-color: whitesmoke;
     opacity: 0.5;
     text-align: right;
@@ -114,8 +116,8 @@ canvas {
     cursor: pointer;
 }
 
-.refresh label { 
-    cursor: pointer;   
+.refresh label {
+    cursor: pointer;
 }
 
 .refresh:hover {
@@ -247,6 +249,7 @@ input {
     box-shadow: 10px 10px 20px #000000;
 }
 
+
 /* Common styles end*/
 
 
@@ -267,6 +270,7 @@ input {
     margin-top: 5px;
     background-color: #eee;
 }
+
 
 
 /* Settings styles end*/
@@ -329,6 +333,7 @@ input {
     font-size: 0.9em;
 }
 
+
 /* Graph styles end*/
 
 
@@ -377,17 +382,18 @@ input {
     text-align-last: center;
 }
 
+
 /* Flat Button start */
 
 .btn {
     position: relative;
     background: #82cee4;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#82cee4), color-stop(100%,#3198b6));
-    background: -webkit-linear-gradient(top, #82cee4 0%,#3198b6 100%);
-    background: -o-linear-gradient(top, #82cee4 0%,#3198b6 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(#82cee4),to(#3198b6));
-    background: linear-gradient(to bottom, #82cee4 0%,#3198b6 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82cee4', endColorstr='#3198b6',GradientType=0 );
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #82cee4), color-stop(100%, #3198b6));
+    background: -webkit-linear-gradient(top, #82cee4 0%, #3198b6 100%);
+    background: -o-linear-gradient(top, #82cee4 0%, #3198b6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#82cee4), to(#3198b6));
+    background: linear-gradient(to bottom, #82cee4 0%, #3198b6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82cee4', endColorstr='#3198b6', GradientType=0);
     font-family: 'Abel';
     color: white;
     border: 1px solid #2f8ca7;
@@ -398,12 +404,14 @@ input {
     outline: none;
     width: 48%;
 }
+
 .btn:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
+
 
 /* Flat Button end */
 
@@ -413,7 +421,7 @@ input {
 }
 
 .modal-content-wrapper p {
-    text-align:justify;
+    text-align: justify;
 }
 
 .closeModalbtn {
@@ -424,16 +432,49 @@ input {
     border-radius: 1px;
 }
 
+
 /* Placeholder style start */
 
-input::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.6s ease;}
-input::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.6s ease;}
-input:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.6s ease;}
-input:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.6s ease;}
-input:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.6s ease;}
-input:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.6s ease;}
-input:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.6s ease;}
-input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.6s ease;}
+input::-webkit-input-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.6s ease;
+}
+
+input::-moz-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.6s ease;
+}
+
+input:-moz-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.6s ease;
+}
+
+input:-ms-input-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.6s ease;
+}
+
+input:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.6s ease;
+}
+
+input:focus::-moz-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.6s ease;
+}
+
+input:focus:-moz-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.6s ease;
+}
+
+input:focus:-ms-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.6s ease;
+}
+
 
 /* Placeholder style end */
 
@@ -464,7 +505,14 @@ input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-ind
     background: #fbfbfb;
 }
 
-.curr-pair, .check-period, .profit, .max-purch, .order-life-time, .stop-loss, .take-profit, .use-macd {
+.curr-pair,
+.check-period,
+.profit,
+.max-purch,
+.order-life-time,
+.stop-loss,
+.take-profit,
+.use-macd {
     display: block;
 }
 
@@ -702,6 +750,7 @@ input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-ind
 }
 
 
+
 /* Controls styles end*/
 
 
@@ -756,24 +805,29 @@ input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-ind
 }
 
 
+
 /* webkit scrollbar style */
 
-.order-content__scrollable::-webkit-scrollbar-track, #console::-webkit-scrollbar-track {
+.order-content__scrollable::-webkit-scrollbar-track,
+#console::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.order-content__scrollable::-webkit-scrollbar, #console::-webkit-scrollbar {
+.order-content__scrollable::-webkit-scrollbar,
+#console::-webkit-scrollbar {
     width: 7px;
     background-color: #F6F6F6;
 }
 
-.order-content__scrollable::-webkit-scrollbar-thumb, #console::-webkit-scrollbar-thumb {
+.order-content__scrollable::-webkit-scrollbar-thumb,
+#console::-webkit-scrollbar-thumb {
     background-color: lightblue;
 
     background-image: -webkit-gradient(linear, 0 0, 0 100%,
     color-stop(.5, rgba(255, 255, 255, .2)),
     color-stop(.5, transparent), to(transparent));
 }
+
 
 
 /* webkit scrollbar style end*/
@@ -793,6 +847,7 @@ input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-ind
     width: 77px;
     overflow: hidden;
 }
+
 
 
 /* Orders info styles end*/
@@ -858,6 +913,7 @@ ul {
 }
 
 
+
 /* Стили для скрытого выпадающего меню, которого нет */
 
 .app__header-menu li>ul {
@@ -871,6 +927,7 @@ ul {
     border-left: solid 2px steelblue;
     text-shadow: none;
 }
+
 
 
 /*Делаем скрытую часть видимой*/
@@ -904,6 +961,7 @@ ul {
 .app__header-menu li>ul>li:hover>a {
     text-shadow: none;
 }
+
 
 
 /* Menu styles end*/
@@ -1021,6 +1079,7 @@ ul {
 }
 
 
+
 /* Blance styles end*/
 
 .latest-deals {
@@ -1030,27 +1089,24 @@ ul {
     font-family: 'Abel', sans-serif;
     font-size: 0.8em;
     padding: 5px;
-    background-color: white; 
+    background-color: white;
 }
 
 .deal {
     position: relative;
     display: block;
-    min-width: 77px; 
+    min-width: 77px;
     max-width: 87px;
     text-align: center;
     transition: .9s ease-in-out;
     opacity: 0.9;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
 }
 
-.deal:before, .deal:after{
+.deal:before,
+.deal:after {}
 
-}
-
-.deal:after{
-
-}
+.deal:after {}
 
 .deal-cell__buy {
     display: block;
@@ -1077,84 +1133,94 @@ ul {
     background: white;
 }
 
+
 /* logo */
 
 .bluelight {
-  display: table;
-  overflow: visible;
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  width: 260px;
-  height: 260px;
-  text-align: center;
-  text-transform: uppercase;
-  color: lightblue;
-  text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-.bluelight a {
-  display: table-cell;
-  font-family: 'Wallpoet', cursive;
-  font-size: 1.3em;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
-  border-radius: 50%;
-  background: none;
-  transition: background 1s, border-width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), text-shadow 0.5s;
-  color: #fff;
-  text-shadow: 0 0 10px #0aafe6, 0 0 10px #0aafe6;
-  box-shadow: 0 0 0 rgba(10, 175, 230, 0), inset 0 0 0 rgba(10, 175, 230, 0);
-  border: 0 dotted rgba(10, 175, 230, 0);
+    display: table;
+    overflow: visible;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    text-align: center;
+    text-transform: uppercase;
+    color: lightblue;
+    text-shadow: 0 0 80px #ffffff, 0 0 30px #008000, 0 0 6px #0000ff;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
-.bluelight:before, .bluelight:after, .bluelight a:before, .bluelight a:after {
-  transition: 0.2s ease-in-out;
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 50%;
-  border: 60px dashed transparent;
-  left: 50%;
-  top: 20%;
-  transform: translate(-50%, -50%);
+.bluelight a {
+    display: table-cell;
+    font-family: 'Wallpoet', cursive;
+    font-size: 1.3em;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: none;
+    transition: background 1s, border-width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), text-shadow 0.5s;
+    color: #fff;
+    text-shadow: 0 0 10px #0aafe6, 0 0 10px #0aafe6;
+    box-shadow: 0 0 0 rgba(10, 175, 230, 0), inset 0 0 0 rgba(10, 175, 230, 0);
+    border: 0 dotted rgba(10, 175, 230, 0);
 }
-.bluelight:before {
-  animation: rotate 20s linear 0s infinite;
-  width: 180%;
-  height: 180%;
-  border: 3px dotted rgba(10, 175, 230, 0.3);
-  z-index: -1;
-}
-.bluelight:after {
-  animation: rotate 10s linear 0s infinite reverse;
-  border: 80px dashed rgba(10, 175, 230, 0.1);
-  width: 160%;
-  height: 160%;
-  z-index: -2;
-}
-.bluelight a:before {
-  animation: rotate 5s ease-in-out 0s infinite alternate;
-  width: 120%;
-  height: 120%;
-  border: 50px dashed rgba(10, 175, 230, 0.3);
-}
+
+.bluelight:before,
+.bluelight:after,
+.bluelight a:before,
 .bluelight a:after {
-  animation: rotate 5s linear 0s infinite;
-  border: 18px dashed rgba(10, 175, 230, 0.3);
-  width: 120%;
-  height: 120%;
+    transition: 0.2s ease-in-out;
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    border: 60px dashed transparent;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.bluelight:before {
+    animation: rotate 20s linear 0s infinite;
+    width: 180%;
+    height: 180%;
+    border: 3px dotted rgba(10, 175, 230, 0.3);
+    z-index: -1;
+}
+
+.bluelight:after {
+    animation: rotate 10s linear 0s infinite reverse;
+    border: 80px dashed rgba(10, 175, 230, 0.1);
+    width: 160%;
+    height: 160%;
+    z-index: -2;
+}
+
+.bluelight a:before {
+    animation: rotate 5s ease-in-out 0s infinite alternate;
+    width: 120%;
+    height: 120%;
+    border: 50px dashed rgba(10, 175, 230, 0.3);
+}
+
+.bluelight a:after {
+    animation: rotate 5s linear 0s infinite;
+    border: 18px dashed rgba(10, 175, 230, 0.3);
+    width: 120%;
+    height: 120%;
 }
 
 @keyframes rotate {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
+
 
 /* logo end */
