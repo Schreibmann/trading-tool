@@ -5,7 +5,6 @@ import TradingMode from "./TradingMode.jsx";
 import MarketOrders from "./MarketOrders.jsx";
 import LatestDeals from "./LatestDeals.jsx";
 import { getDeals, getPairSummary } from "../lib/apiCalls.js";
-import { setCrypto } from "../actions/tradingItemsListActions";
 
 class TradingItem extends Component {
   constructor(props) {
@@ -72,7 +71,6 @@ class TradingItem extends Component {
             id={this.props.id}
             crypto={this.props.crypto}
             currency={this.props.currency}
-            setCurrency={(event, id) => this.props.setCurrency(event, id)}
             symbol={this.symbols[this.props.currency]}
             avgPricePeriod={this.state.avgPricePeriod}
             setAvgPricePeriod={event => this.setAvgPricePeriod(event)}
@@ -183,7 +181,4 @@ TradingItem.prototype.updatePairSummary = function(pair) {
   });
 };
 
-export default connect(
-  null,
-  { setCrypto }
-)(TradingItem);
+export default TradingItem;

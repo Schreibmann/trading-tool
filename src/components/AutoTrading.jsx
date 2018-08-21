@@ -1,59 +1,8 @@
-import React, { Component } from "react";
-import Controls from "../components/Controls.jsx";
-import Console from "../components/Console.jsx";
-import { api_query, getDeals } from "../lib/apiCalls.js";
-import { now } from "../lib/scripts.js";
-import { setCrypto } from "../actions/tradingItemsListActions";
-import { connect } from "react-redux";
-
-const PAIRS = [
-  "BTC_USD",
-  "BTC_EUR",
-  "BTC_RUB",
-  "BTC_UAH",
-  "BTC_PLN",
-  "BCH_BTC",
-  "BCH_USD",
-  "BCH_RUB",
-  "BCH_ETH",
-  "DASH_BTC",
-  "DASH_USD",
-  "DASH_RUB",
-  "ETH_BTC",
-  "ETH_LTC",
-  "ETH_USD",
-  "ETH_EUR",
-  "ETH_RUB",
-  "ETH_UAH",
-  "ETH_PLN",
-  "ETC_BTC",
-  "ETC_USD",
-  "ETC_RUB",
-  "LTC_BTC",
-  "LTC_USD",
-  "LTC_EUR",
-  "LTC_RUB",
-  "ZEC_BTC",
-  "ZEC_USD",
-  "ZEC_EUR",
-  "ZEC_RUB",
-  "XRP_BTC",
-  "XRP_USD",
-  "XRP_RUB",
-  "XMR_BTC",
-  "XMR_USD",
-  "XMR_EUR",
-  "BTC_USDT",
-  "ETH_USDT",
-  "USDT_USD",
-  "USDT_RUB",
-  "USD_RUB",
-  "DOGE_BTC",
-  "WAVES_BTC",
-  "WAVES_RUB",
-  "KICK_BTC",
-  "KICK_ETH"
-];
+import React, { Component } from 'react';
+import Controls from './Controls';
+import Console from './Console';
+import { api_query, getDeals } from '../lib/apiCalls';
+import { now } from '../lib/scripts';
 
 class AutoTrading extends Component {
   constructor(props) {
@@ -64,26 +13,16 @@ class AutoTrading extends Component {
     this.state = {
       trading: false,
       showConsole: false,
-      consoleText: this.consoleText
+      consoleText: this.consoleText,
     };
   }
 
-  onChangeCrypto(e) {
-    let pair = `${e.target.value}_${this.props.currency}`;
-    if (PAIRS.indexOf(pair) > -1) {
-      this.props.setCrypto(this.props.id, e.target.value);
-    } else {
-      e.preventDefault();
-      alert(`Pair ${pair} not available at stock.`);
-    }
-  }
-
   render() {
-    let visibility = this.state.showConsole ? "visible" : "hidden";
+    const visibility = this.state.showConsole ? 'visible' : 'hidden';
 
     return (
       <div className="auto-trading__inner">
-        <Console visibility={visibility} text={this.state.consoleText}/>
+        <Console visibility={visibility} text={this.state.consoleText} />
         <div className="curr-pair app-block__item__elem">
           <div className="curr-pair__label ">
             <label className="">Currency pair</label>
@@ -94,7 +33,7 @@ class AutoTrading extends Component {
               id="currency"
               name="currency"
               value={this.props.currency}
-              onChange={event => this.onChangeCrypto(event)}
+              onChange={e => this.props.setCurrency(e)}
             >
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -112,7 +51,7 @@ class AutoTrading extends Component {
               id="crypto"
               name="crypto"
               value={this.props.crypto}
-              onChange={e => this.onChangeCrypto(e)}
+              onChange={e => this.props.setCrypto(e)}
             >
               <option value="BTC">BTC</option>
               <option value="LTC">LTC</option>
@@ -159,7 +98,7 @@ class AutoTrading extends Component {
           <div className="profit__label">
             <label className="profit__label-caption">
               Deal profit
-              <span className="profit-persent-value">{` [0.001 = 0.1%]`}</span>
+              <span className="profit-persent-value"> [0.001 = 0.1%]</span>
             </label>
           </div>
           <div className="profit__values">
@@ -180,7 +119,9 @@ class AutoTrading extends Component {
             <label
               className="max-purch__label-caption"
               title="How much currency bot spend to create order"
-            >{`Can spend ${this.props.currency}`}</label>
+            >
+              {`Can spend ${this.props.currency}`}
+            </label>
           </div>
           <div className="max-purch__values">
             <input
@@ -287,13 +228,13 @@ class AutoTrading extends Component {
   }
 }
 
-AutoTrading.prototype.toggleConsoleView = function() {
+AutoTrading.prototype.toggleConsoleView = function () {
   this.setState({
-    showConsole: !this.state.showConsole
+    showConsole: !this.state.showConsole,
   });
 };
 
-AutoTrading.prototype.toggleTrading = function() {
+AutoTrading.prototype.toggleTrading = function () {
   if (this.state.trading && this.botInterval) {
     this.addLog(`${now()} Bot was disactivated...`);
     clearInterval(this.botInterval);
@@ -301,282 +242,253 @@ AutoTrading.prototype.toggleTrading = function() {
   } else {
     this.botInterval = setInterval(
       () => this.trade(this.props.currency, this.props.crypto, this.props.pair),
-      3000
+      3000,
     );
     this.addLog(`${now()} Bot was activated...`);
   }
 
   this.setState({
-    trading: !this.state.trading
+    trading: !this.state.trading,
   });
 };
 
-AutoTrading.prototype.addLog = function(text) {
+AutoTrading.prototype.addLog = function (text) {
   this.consoleText.unshift(<p>{text}</p>);
   this.setState({
-    consoleText: this.consoleText
+    consoleText: this.consoleText,
   });
 };
 
-AutoTrading.prototype.trade = function(curr, crypto, pair) {
+AutoTrading.prototype.trade = function (curr, crypto, pair) {
   if (!this.state.trading) {
     clearInterval(this.botInterval);
     this.botInterval = null;
   } else {
     const STOCK_FEE = 0.002; // Комиссия, которую берет биржа (0.002 = 0.2%)
-    const API_PATH = "https://api.exmo.com/v1/";
-    const PERIOD = this.props.avgPricePeriod; //За какой период вычисляем среднюю стоимость
+    const API_PATH = 'https://api.exmo.com/v1/';
+    const PERIOD = this.props.avgPricePeriod; // За какой период вычисляем среднюю стоимость
     const CAN_SPEND = this.props.canSpend; // Сколько тратить бабла каждый раз при покупке крипты
     const PROFIT_MARKUP = this.props.dealProfit; // Какой навар нужен с каждой сделки? (0.001 = 0.1%)
     const ORDER_LIFE_TIME = this.props.orderLifeTime; // Через сколько минут отменять неисполненный ордер на покупку крипты
 
     this.addLog(`Checking settings for pair ${pair}`);
-    fetch(`${API_PATH}pair_settings`) //Смотрим настройки пары
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        if (data.hasOwnProperty("error")) {
+    fetch(`${API_PATH}pair_settings`) // Смотрим настройки пары
+      .then(res => res.json())
+      .then((data) => {
+        if (data.hasOwnProperty('error')) {
           this.addLog(
-            `Getting pair info for ${pair} failed with error: ${data.error}`
+            `Getting pair info for ${pair} failed with error: ${data.error}`,
           );
           return null;
-        } else {
-          let CURRENCY_1_MIN_QUANTITY = data[pair].min_quantity; //Определяем минимальное кол-во крипты на закупку
-          this.addLog(
-            `${now()}: Success. Min quantity is ${CURRENCY_1_MIN_QUANTITY} ${crypto}`
-          );
-
-          //Получаем все ордера
-          this.addLog(`Checking opened orders`);
-          let openedOrders = api_query("user_open_orders", {}).then(
-            res => {
-              let data = JSON.parse(res);
-              console.log(data);
-              if (data.hasOwnProperty("error")) {
-                this.addLog(
-                  `Getting opened orders for ${pair} failed with error: ${
-                    data.error
-                  }. Exit`
-                );
-              } else return data;
-            },
-            error => {
-              return error;
-            }
-          );
-
-          //Есть ли открытые ордера
-          openedOrders.then(
-            orders => {
-              if (typeof orders === "undefined") return null;
-              if (typeof orders[pair] !== "undefined") {
-                //Есть ордера по этой паре
-                this.addLog(`Success. Some orders on ${pair} pair`);
-                let buyOrders = [];
-                for (let order of orders[pair]) {
-                  //Есть ли ордера на продажу
-                  if (order.type === "sell") {
-                    //Есть ордера на продажу, выходим
-                    this.addLog(`Quit. Waiting opened sell orders to be done.`);
-                    return null;
-                  } else {
-                    //Запоминаем ордера на покупку
-                    buyOrders.push(order);
-                  }
-                }
-
-                //Есть ли ордера на покупку
-                if (buyOrders.length > 0) {
-                  //Ордера на покупку есть
-                  this.addLog(`Some buy orders on ${pair} pair`);
-                  for (let order of buyOrders) {
-                    this.addLog("Ckecking buy order"); //Есть ли частично исполненные
-                    api_query("order_trades", { order_id: order["order_id"] }) //Смотрим состояние ордера
-                      .then(
-                        res => {
-                          if (res.indexOf("Error 50304") <= -1) {
-                            //Частично исполнен, выходим
-                            this.addLog("Quit. Wainig buy orders to be done.");
-                            //return 0;
-                          } else {
-                            //Частично не исполнен, смотрим как давно висит
-                            let now = new Date();
-                            let timePassed =
-                              now.getUnixTimestamp() -
-                              0 * 60 * 60 -
-                              order["created"];
-                            if (timePassed > ORDER_LIFE_TIME * 60) {
-                              //Давно висит, отменяем
-                              this.addLog("Old order. Trying to cancel...");
-                              api_query("order_cancel", {
-                                order_id: order["order_id"]
-                              }).then(
-                                res => {
-                                  res.result
-                                    ? this.addLog("Success. Order cancelled")
-                                    : this.addLog(
-                                        `Cancelling order failed with error ${
-                                          res.error
-                                        }`
-                                      );
-                                },
-                                error => {
-                                  //Cancel order query error
-                                  return error;
-                                }
-                              );
-                            } else {
-                              //Нехай еще повисит
-                              this.addLog(
-                                `Quit. Waiting buy order to be done. Passed ${timePassed} seconds since creation.`
-                              );
-                            }
-                          }
-                        },
-                        error => {
-                          //Order trades query error
-                          return error;
-                        }
-                      );
-                  }
-                  return null; //Общий выход
-
-                  //Ордеров на покупку нет. Едем дальше
-                } else {
-                  this.addLog("Something strange is goin on.. call 911"); //До этого места никогда не дойдет, но пусть будет. Вдруг чо?
-                }
-              } else {
-                //Ордеров по выбранной паре нет. Создаем (если можем)
-                this.addLog("No orders. Trying to create some...");
-                api_query("user_info", {}).then(
-                  res => {
-                    let data = JSON.parse(res);
-                    //Есть ли крипта на продажу в количестве больше минимального
-                    if (data.balances[crypto] >= CURRENCY_1_MIN_QUANTITY) {
-                      //Есть. Продаем дороже, чем купили, с учетом комисси и навара
-                      let wannaGet =
-                        CAN_SPEND + CAN_SPEND * (STOCK_FEE + PROFIT_MARKUP);
-                      this.addLog(
-                        `Trying to sell ${
-                          data.balances[crypto]
-                        }${crypto} and get ${wannaGet}${curr}`
-                      );
-                      api_query(
-                        "order_create", //Создаем ордер
-                        {
-                          pair: pair,
-                          quantity: data.balances[crypto],
-                          price: wannaGet / parseFloat(data.balances[crypto]),
-                          type: "sell"
-                        }
-                      ).then(
-                        res => {
-                          let data = JSON.parse(res);
-                          if (data.hasOwnProperty("error")) {
-                            this.addLog(data.error);
-                          } else {
-                            this.addLog("Success! Order created.");
-                          }
-                        },
-                        error => {
-                          //Create sell order query error
-                          return error;
-                        }
-                      );
-                    } else {
-                      //Если крипты маловато, пробуем докупить.
-                      //Есть ли бабло?
-                      if (parseFloat(data.balances[curr]) >= CAN_SPEND) {
-                        //Бабло есть. Вычисляем среднюю стоимость за указанный период
-                        let deals = getDeals(pair, 10000, "buy"); //Список завершенных сделок на покупку
-                        deals.then(data => {
-                          let actualDeals = data.filter(deal => {
-                            //Выбираем сделки за указанный период
-                            let now = new Date();
-                            let timePassed =
-                              now.getUnixTimestamp() -
-                              deal["date"] -
-                              0 * 60 * 60; //+- время биржи, если расходится
-                            return timePassed < PERIOD * 60;
-                          });
-
-                          let prices = actualDeals.map(deal => {
-                            return parseFloat(deal["price"]);
-                          });
-
-                          let avgPrice =
-                            prices.reduce((first, next) => first + next, 0) /
-                            prices.length;
-                          let myNeedPrice =
-                            avgPrice - avgPrice * (STOCK_FEE + PROFIT_MARKUP);
-                          let myAmount = CAN_SPEND / myNeedPrice;
-
-                          this.addLog(
-                            `Trying to buy ${myAmount} ${crypto} for ${myNeedPrice} ${curr}`
-                          );
-                          //Допускается ли покупка такого количества крипты?
-                          if (myAmount >= CURRENCY_1_MIN_QUANTITY) {
-                            //Допускается
-                            api_query("order_create", {
-                              pair: pair,
-                              quantity: myAmount,
-                              price: myNeedPrice,
-                              type: "buy"
-                            }) //Создаем ордер
-                              .then(
-                                res => {
-                                  let data = JSON.parse(res);
-                                  if (data.hasOwnProperty("error")) {
-                                    this.addLog(data.error);
-                                  } else {
-                                    this.addLog("Success! Order created.");
-                                  }
-                                },
-                                error => {
-                                  //Create buy order query error
-                                  return error;
-                                }
-                              );
-                          } else {
-                            //Маловато будет
-                            this.addLog(
-                              `Budget is too low. Can only buy less than ${CURRENCY_1_MIN_QUANTITY} ${crypto}`
-                            );
-                            return null;
-                          }
-                        });
-                      } else {
-                        //Бабла нет.
-                        this.addLog(
-                          `${now()} Not enough ${curr} to start trading. Exit.`
-                        );
-                        return null;
-                      }
-                    }
-                  },
-                  error => {
-                    //User info query error
-                    return error;
-                  }
-                );
-              }
-            },
-            error => {
-              //Opened orders query error
-              return error;
-            }
-          );
         }
+        const CURRENCY_1_MIN_QUANTITY = data[pair].min_quantity; // Определяем минимальное кол-во крипты на закупку
+        this.addLog(
+          `${now()}: Success. Min quantity is ${CURRENCY_1_MIN_QUANTITY} ${crypto}`,
+        );
+
+        // Получаем все ордера
+        this.addLog('Checking opened orders');
+        const openedOrders = api_query('user_open_orders', {}).then(
+          (res) => {
+            const data = JSON.parse(res);
+            console.log(data);
+            if (data.hasOwnProperty('error')) {
+              this.addLog(
+                `Getting opened orders for ${pair} failed with error: ${
+                  data.error
+                }. Exit`,
+              );
+            } else return data;
+          },
+          error => error,
+        );
+
+        // Есть ли открытые ордера
+        openedOrders.then(
+          (orders) => {
+            if (typeof orders === 'undefined') return null;
+            if (typeof orders[pair] !== 'undefined') {
+              // Есть ордера по этой паре
+              this.addLog(`Success. Some orders on ${pair} pair`);
+              const buyOrders = [];
+              for (const order of orders[pair]) {
+                // Есть ли ордера на продажу
+                if (order.type === 'sell') {
+                  // Есть ордера на продажу, выходим
+                  this.addLog('Quit. Waiting opened sell orders to be done.');
+                  return null;
+                }
+                // Запоминаем ордера на покупку
+                buyOrders.push(order);
+              }
+
+              // Есть ли ордера на покупку
+              if (buyOrders.length > 0) {
+                // Ордера на покупку есть
+                this.addLog(`Some buy orders on ${pair} pair`);
+                for (const order of buyOrders) {
+                  this.addLog('Ckecking buy order'); // Есть ли частично исполненные
+                  api_query('order_trades', { order_id: order.order_id }) // Смотрим состояние ордера
+                    .then(
+                      (res) => {
+                        if (res.indexOf('Error 50304') <= -1) {
+                          // Частично исполнен, выходим
+                          this.addLog('Quit. Wainig buy orders to be done.');
+                          // return 0;
+                        } else {
+                          // Частично не исполнен, смотрим как давно висит
+                          const now = new Date();
+                          const timePassed = now.getUnixTimestamp()
+                              - 0 * 60 * 60
+                              - order.created;
+                          if (timePassed > ORDER_LIFE_TIME * 60) {
+                            // Давно висит, отменяем
+                            this.addLog('Old order. Trying to cancel...');
+                            api_query('order_cancel', {
+                              order_id: order.order_id,
+                            }).then(
+                              (res) => {
+                                res.result
+                                  ? this.addLog('Success. Order cancelled')
+                                  : this.addLog(
+                                    `Cancelling order failed with error ${
+                                      res.error
+                                    }`,
+                                  );
+                              },
+                              error => error,
+
+                            );
+                          } else {
+                            // Нехай еще повисит
+                            this.addLog(
+                              `Quit. Waiting buy order to be done. Passed ${timePassed} seconds since creation.`,
+                            );
+                          }
+                        }
+                      },
+                      error => error,
+
+                    );
+                }
+                return null; // Общий выход
+
+                // Ордеров на покупку нет. Едем дальше
+              }
+              this.addLog('Something strange is goin on.. call 911'); // До этого места никогда не дойдет, но пусть будет. Вдруг чо?
+            } else {
+              // Ордеров по выбранной паре нет. Создаем (если можем)
+              this.addLog('No orders. Trying to create some...');
+              api_query('user_info', {}).then(
+                (res) => {
+                  const data = JSON.parse(res);
+                  // Есть ли крипта на продажу в количестве больше минимального
+                  if (data.balances[crypto] >= CURRENCY_1_MIN_QUANTITY) {
+                    // Есть. Продаем дороже, чем купили, с учетом комисси и навара
+                    const wannaGet = CAN_SPEND + CAN_SPEND * (STOCK_FEE + PROFIT_MARKUP);
+                    this.addLog(
+                      `Trying to sell ${
+                        data.balances[crypto]
+                      }${crypto} and get ${wannaGet}${curr}`,
+                    );
+                    api_query(
+                      'order_create', // Создаем ордер
+                      {
+                        pair,
+                        quantity: data.balances[crypto],
+                        price: wannaGet / parseFloat(data.balances[crypto]),
+                        type: 'sell',
+                      },
+                    ).then(
+                      (res) => {
+                        const data = JSON.parse(res);
+                        if (data.hasOwnProperty('error')) {
+                          this.addLog(data.error);
+                        } else {
+                          this.addLog('Success! Order created.');
+                        }
+                      },
+                      error => error,
+
+                    );
+                  } else {
+                    // Если крипты маловато, пробуем докупить.
+                    // Есть ли бабло?
+                    if (parseFloat(data.balances[curr]) >= CAN_SPEND) {
+                      // Бабло есть. Вычисляем среднюю стоимость за указанный период
+                      const deals = getDeals(pair, 10000, 'buy'); // Список завершенных сделок на покупку
+                      deals.then((data) => {
+                        const actualDeals = data.filter((deal) => {
+                          // Выбираем сделки за указанный период
+                          const now = new Date();
+                          const timePassed = now.getUnixTimestamp()
+                              - deal.date
+                              - 0 * 60 * 60; // +- время биржи, если расходится
+                          return timePassed < PERIOD * 60;
+                        });
+
+                        const prices = actualDeals.map(deal => parseFloat(deal.price));
+
+                        const avgPrice = prices.reduce((first, next) => first + next, 0)
+                            / prices.length;
+                        const myNeedPrice = avgPrice - avgPrice * (STOCK_FEE + PROFIT_MARKUP);
+                        const myAmount = CAN_SPEND / myNeedPrice;
+
+                        this.addLog(
+                          `Trying to buy ${myAmount} ${crypto} for ${myNeedPrice} ${curr}`,
+                        );
+                        // Допускается ли покупка такого количества крипты?
+                        if (myAmount >= CURRENCY_1_MIN_QUANTITY) {
+                          // Допускается
+                          api_query('order_create', {
+                            pair,
+                            quantity: myAmount,
+                            price: myNeedPrice,
+                            type: 'buy',
+                          }) // Создаем ордер
+                            .then(
+                              (res) => {
+                                const data = JSON.parse(res);
+                                if (data.hasOwnProperty('error')) {
+                                  this.addLog(data.error);
+                                } else {
+                                  this.addLog('Success! Order created.');
+                                }
+                              },
+                              error => error,
+
+                            );
+                        } else {
+                          // Маловато будет
+                          this.addLog(
+                            `Budget is too low. Can only buy less than ${CURRENCY_1_MIN_QUANTITY} ${crypto}`,
+                          );
+                          return null;
+                        }
+                      });
+                    } else {
+                      // Бабла нет.
+                      this.addLog(
+                        `${now()} Not enough ${curr} to start trading. Exit.`,
+                      );
+                      return null;
+                    }
+                  }
+                },
+                error => error,
+
+              );
+            }
+          },
+          error => error,
+
+        );
       })
-      .catch(err => {
+      .catch((err) => {
         //
         this.addLog(err);
       });
   }
 };
 
-export default connect(
-  null,
-  { setCrypto }
-)(AutoTrading);
+export default AutoTrading;

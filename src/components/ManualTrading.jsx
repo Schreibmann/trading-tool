@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { createOrder, getPairSummary } from "../lib/apiCalls.js";
-import Modal from "react-awesome-modal";
+import React, { Component } from 'react';
+import Modal from 'react-awesome-modal';
+import { createOrder, getPairSummary } from '../lib/apiCalls.js';
 
 class ManualTrading extends Component {
   constructor(props) {
@@ -8,8 +8,8 @@ class ManualTrading extends Component {
 
     this.state = {
       showModal: false,
-      modalText: "fuck",
-      summary: {}
+      modalText: 'fuck',
+      summary: {},
     };
 
     this.updatePairSummary(this.props.pair);
@@ -90,8 +90,7 @@ class ManualTrading extends Component {
             id="currency"
             name="currency"
             value={this.props.currency}
-            onChange={(event, id) =>
-              this.props.setCurrency(event, this.props.id)
+            onChange={(event, id) => this.props.setCurrency(event, this.props.id)
             }
           >
             <option value="USD">USD</option>
@@ -111,7 +110,10 @@ class ManualTrading extends Component {
               <label>Total: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label ref="totalVal">0.000 {this.props.currency}</label>
+              <label ref="totalVal">
+0.000
+                {this.props.currency}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -119,7 +121,10 @@ class ManualTrading extends Component {
               <label>Buy fee: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label ref="buyFeeVal">0.000 {this.props.crypto}</label>
+              <label ref="buyFeeVal">
+0.000
+                {this.props.crypto}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -127,7 +132,10 @@ class ManualTrading extends Component {
               <label>Sell fee: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label ref="sellFeeVal">0.000 {this.props.currency}</label>
+              <label ref="sellFeeVal">
+0.000
+                {this.props.currency}
+              </label>
             </div>
           </div>
         </div>
@@ -140,30 +148,28 @@ class ManualTrading extends Component {
           <div className="hint-row">
             <button
               className="btn buy"
-              onClick={() =>
-                this.openModal(
-                  createOrder(
-                    this.props.pair,
-                    parseFloat(this.refs.amount.value),
-                    parseFloat(this.refs.price.value),
-                    "buy"
-                  )
-                )
+              onClick={() => this.openModal(
+                createOrder(
+                  this.props.pair,
+                  parseFloat(this.refs.amount.value),
+                  parseFloat(this.refs.price.value),
+                  'buy',
+                ),
+              )
               }
             >
               buy
             </button>
             <button
               className="btn sell"
-              onClick={() =>
-                this.openModal(
-                  createOrder(
-                    this.props.pair,
-                    parseFloat(this.refs.amount.value),
-                    parseFloat(this.refs.price.value),
-                    "sell"
-                  )
-                )
+              onClick={() => this.openModal(
+                createOrder(
+                  this.props.pair,
+                  parseFloat(this.refs.amount.value),
+                  parseFloat(this.refs.price.value),
+                  'sell',
+                ),
+              )
               }
             >
               sell
@@ -181,9 +187,11 @@ class ManualTrading extends Component {
               <label>Daily max: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label>{`${parseFloat(this.state.summary.high).toFixed(3)} ${
-                this.props.symbol
-              }`}</label>
+              <label>
+                {`${parseFloat(this.state.summary.high).toFixed(3)} ${
+                  this.props.symbol
+                }`}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -191,9 +199,11 @@ class ManualTrading extends Component {
               <label>Daily min: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label>{`${parseFloat(this.state.summary.low).toFixed(3)} ${
-                this.props.symbol
-              }`}</label>
+              <label>
+                {`${parseFloat(this.state.summary.low).toFixed(3)} ${
+                  this.props.symbol
+                }`}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -201,9 +211,11 @@ class ManualTrading extends Component {
               <label>Daily average: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label>{`${parseFloat(this.state.summary.avg).toFixed(3)} ${
-                this.props.symbol
-              }`}</label>
+              <label>
+                {`${parseFloat(this.state.summary.avg).toFixed(3)} ${
+                  this.props.symbol
+                }`}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -211,9 +223,11 @@ class ManualTrading extends Component {
               <label>Current max buy: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label>{`${parseFloat(this.state.summary.buy_price).toFixed(3)} ${
-                this.props.symbol
-              }`}</label>
+              <label>
+                {`${parseFloat(this.state.summary.buy_price).toFixed(3)} ${
+                  this.props.symbol
+                }`}
+              </label>
             </div>
           </div>
           <div className="hint-row">
@@ -221,9 +235,11 @@ class ManualTrading extends Component {
               <label>Current min sell: </label>
             </div>
             <div className="hint-cell hint-value">
-              <label>{`${parseFloat(this.state.summary.sell_price).toFixed(
-                3
-              )} ${this.props.symbol}`}</label>
+              <label>
+                {`${parseFloat(this.state.summary.sell_price).toFixed(
+                  3,
+                )} ${this.props.symbol}`}
+              </label>
             </div>
           </div>
         </div>
@@ -232,52 +248,52 @@ class ManualTrading extends Component {
   }
 }
 
-ManualTrading.prototype.openModal = function(msg) {
+ManualTrading.prototype.openModal = function (msg) {
   if (
-    msg !== null &&
-    (typeof msg === "object" || typeof msg === "function") &&
-    typeof msg.then === "function"
+    msg !== null
+    && (typeof msg === 'object' || typeof msg === 'function')
+    && typeof msg.then === 'function'
   ) {
-    msg.then(text => {
+    msg.then((text) => {
       this.setState({
         modalText: text,
-        showModal: true
+        showModal: true,
       });
     });
   } else {
     this.setState({
       modalText: msg,
-      showModal: true
+      showModal: true,
     });
   }
 };
 
-ManualTrading.prototype.closeModal = function() {
+ManualTrading.prototype.closeModal = function () {
   this.setState({
-    showModal: false
+    showModal: false,
   });
 };
 
-ManualTrading.prototype.updatePairSummary = function(pair) {
-  let summary = getPairSummary(pair);
+ManualTrading.prototype.updatePairSummary = function (pair) {
+  const summary = getPairSummary(pair);
 
-  summary.then(data => {
+  summary.then((data) => {
     this.setState({
-      summary: data
+      summary: data,
     });
   });
 };
 
-ManualTrading.prototype.showHint = function(event) {
+ManualTrading.prototype.showHint = function (event) {
   this.refs.totalVal.innerHTML = `${Math.ceil(
-    parseFloat(this.refs.amount.value * this.refs.price.value) * 100000000
+    parseFloat(this.refs.amount.value * this.refs.price.value) * 100000000,
   ) / 100000000} ${this.props.currency}`;
   this.refs.buyFeeVal.innerHTML = `${Math.ceil(
-    parseFloat(this.refs.amount.value * 0.002) * 100000000
+    parseFloat(this.refs.amount.value * 0.002) * 100000000,
   ) / 100000000} ${this.props.crypto}`;
   this.refs.sellFeeVal.innerHTML = `${Math.ceil(
-    parseFloat(this.refs.amount.value * 0.002 * this.refs.price.value) *
-      100000000
+    parseFloat(this.refs.amount.value * 0.002 * this.refs.price.value)
+      * 100000000,
   ) / 100000000} ${this.props.currency}`;
 };
 

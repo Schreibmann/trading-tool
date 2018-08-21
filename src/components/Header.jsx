@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { getUserInfo, getUserOrders } from "../lib/apiCalls.js";
-import ApiKeysForm from "../components/ApiKeysForm.jsx";
-import { showApiKeysForm } from "../actions/apiKeysFormActions";
-import { addTradingItem } from "../actions/tradingItemsListActions";
-import Modal from "react-awesome-modal";
-import { showModal, hideModal } from "../actions/modalActions";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import Modal from 'react-awesome-modal';
+import { connect } from 'react-redux';
+import { getUserInfo, getUserOrders } from '../lib/apiCalls';
+import ApiKeysForm from './ApiKeysForm';
+import { showApiKeysForm } from '../actions/apiKeysFormActions';
+import { addTradingItem } from '../actions/tradingItemsListActions';
+import { showModal, hideModal } from '../actions/modalActions';
 
 class Header extends Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class Header extends Component {
     this.state = {
       balances: null,
       reserved: null,
-      userOrders: ""
     };
   }
 
@@ -23,85 +22,82 @@ class Header extends Component {
   }
 
   updateBalance() {
-    let balanceData = getUserInfo();
-    balanceData.then(data => {
-      if (data.hasOwnProperty("error")) {
-        console.log("Updating balance failed with", data.error);
+    const balanceData = getUserInfo();
+    balanceData.then((data) => {
+      if (data.hasOwnProperty('error')) {
+        console.log('Updating balance failed with', data.error);
         this.setState({
           balances: null,
-          reserved: null
+          reserved: null,
         });
+      } else if (
+        data.hasOwnProperty('balances')
+          && data.hasOwnProperty('reserved')
+      ) {
+        this.setState({
+          balances: data.balances,
+          reserved: data.reserved,
+        });
+        console.log('Balance data updated.');
       } else {
-        if (
-          data.hasOwnProperty("balances") &&
-          data.hasOwnProperty("reserved")
-        ) {
-          this.setState({
-            balances: data.balances,
-            reserved: data.reserved
-          });
-          console.log("Balance data updated.");
-        } else {
-          console.log(
-            "Updating balance failed. Api key is not specified or not valid"
-          );
-          this.setState({
-            balances: null,
-            reserved: null
-          });
-        }
+        console.log(
+          'Updating balance failed. Api key is not specified or not valid',
+        );
+        this.setState({
+          balances: null,
+          reserved: null,
+        });
       }
     });
   }
 
   updateUserOrders() {
-    let orders = getUserOrders();
-    orders.then(data => {
-      if (data.hasOwnProperty("error")) {
-        console.log("Updating user orders failed with", data.error);
+    const orders = getUserOrders();
+    orders.then((data) => {
+      if (data.hasOwnProperty('error')) {
+        console.log('Updating user orders failed with', data.error);
       } else {
         this.setState({
-          userOrders: orders
+          userOrders: orders,
         });
-        console.log("User orders info updated.");
+        console.log('User orders info updated.');
       }
     });
   }
 
   render() {
-    let balances = [];
+    const balances = [];
     let rows;
 
     if (this.state.balances !== null) {
-      for (let curr in this.state.balances) {
+      for (const curr in this.state.balances) {
         balances.push([
           curr,
           this.state.balances[curr],
-          this.state.reserved[curr]
+          this.state.reserved[curr],
         ]);
       }
 
-      rows = balances.map((entry, key) => {
-        return (
-          <div className="balance__content__row" key={key}>
-            <div className="balance__content__cell app-block__item__elem">
-              <label>{entry[0]}</label>
-            </div>
-            <div className="balance__content__cell">
-              <label>{entry[1]}</label>
-            </div>
-            <div className="balance__content__cell">
-              <label>{entry[2]}</label>
-            </div>
+      rows = balances.map((entry, key) => (
+        <div className="balance__content__row" key={key}>
+          <div className="balance__content__cell app-block__item__elem">
+            <label>{entry[0]}</label>
           </div>
-        );
-      });
-    } else
+          <div className="balance__content__cell">
+            <label>{entry[1]}</label>
+          </div>
+          <div className="balance__content__cell">
+            <label>{entry[2]}</label>
+          </div>
+        </div>
+      ));
+    } else {
       rows = (
         <label className="processing-data__label">
           Query error. Ensure your api keys are valid.
         </label>
       );
+    }
 
     return (
       <div className="header wrapper">
@@ -133,7 +129,7 @@ class Header extends Component {
                 </li>
                 <li
                   className="shadowed"
-                  onClick={() => this.props.showModal("test ok")}
+                  onClick={() => this.props.showModal('test ok')}
                 >
                   <a>Test modal</a>
                 </li>
@@ -200,10 +196,12 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   modal: state.modal,
-  apiKeysForm: state.apiKeysForm
+  apiKeysForm: state.apiKeysForm,
 });
 
 export default connect(
   mapStateToProps,
-  { addTradingItem, showModal, hideModal, showApiKeysForm }
+  {
+    addTradingItem, showModal, hideModal, showApiKeysForm,
+  },
 )(Header);

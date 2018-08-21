@@ -1,62 +1,61 @@
 function timeConverter(UNIX_timestamp) {
   let a = new Date(UNIX_timestamp);
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
-  let year = a.getFullYear();
-  let month = months[a.getMonth()];
-  let date = a.getDate();
-  let hour = a.getHours();
-  let min = a.getMinutes();
-  let sec = a.getSeconds();
+  const year = a.getFullYear();
+  const month = months[a.getMonth()];
+  const date = a.getDate();
+  const hour = a.getHours();
+  const min = a.getMinutes();
+  const sec = a.getSeconds();
 
   if (a.length < 2) {
-    a = "0" + a;
+    a = `0${a}`;
   }
 
-  let time =
-    date + " " + month + " " + year + " " + hour + ":" + min + ":" + sec;
+  const time = `${date} ${month} ${year} ${hour}:${min}:${sec}`;
   return time;
 }
 
 export function now() {
-  let now = new Date();
+  const now = new Date();
   return timeConverter(now);
 }
 
 export function initCanvas() {
-  let canvas = document.getElementById("canvas");
-  let ctx = canvas.getContext("2d");
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
   let cw = (canvas.width = window.innerWidth);
 
   let ch = (canvas.height = window.innerHeight);
 
-  ctx.fillStyle = "#000";
-  let linesNum = 42;
-  let linesRy = [];
+  ctx.fillStyle = '#000';
+  const linesNum = 42;
+  const linesRy = [];
   let requestId = null;
 
   function Line(flag) {
     this.flag = flag;
     this.a = {};
     this.b = {};
-    if (flag === "v") {
+    if (flag === 'v') {
       this.a.y = 0;
       this.b.y = ch;
       this.a.x = randomIntFromInterval(0, ch);
       this.b.x = randomIntFromInterval(0, ch);
-    } else if (flag === "h") {
+    } else if (flag === 'h') {
       this.a.x = 0;
       this.b.x = cw;
       this.a.y = randomIntFromInterval(0, cw);
@@ -65,19 +64,19 @@ export function initCanvas() {
     this.va = randomIntFromInterval(25, 100) / 100;
     this.vb = randomIntFromInterval(25, 100) / 100;
 
-    this.draw = function() {
-      ctx.strokeStyle = "lightblue";
+    this.draw = function () {
+      ctx.strokeStyle = 'lightblue';
       ctx.beginPath();
       ctx.moveTo(this.a.x, this.a.y);
       ctx.lineTo(this.b.x, this.b.y);
       ctx.stroke();
     };
 
-    this.update = function() {
-      if (this.flag === "v") {
+    this.update = function () {
+      if (this.flag === 'v') {
         this.a.x += this.va;
         this.b.x += this.vb;
-      } else if (flag === "h") {
+      } else if (flag === 'h') {
         this.a.y += this.va;
         this.b.y += this.vb;
       }
@@ -85,15 +84,15 @@ export function initCanvas() {
       this.edges();
     };
 
-    this.edges = function() {
-      if (this.flag === "v") {
+    this.edges = function () {
+      if (this.flag === 'v') {
         if (this.a.x < 0 || this.a.x > cw) {
           this.va *= -1;
         }
         if (this.b.x < 0 || this.b.x > cw) {
           this.vb *= -1;
         }
-      } else if (this.flag === "h") {
+      } else if (this.flag === 'h') {
         if (this.a.y < 0 || this.a.y > ch) {
           this.va *= -1;
         }
@@ -105,8 +104,8 @@ export function initCanvas() {
   }
 
   for (let i = 0; i < linesNum; i++) {
-    let flag = i % 2 === 0 ? "h" : "v";
-    let l = new Line(flag);
+    const flag = i % 2 === 0 ? 'h' : 'v';
+    const l = new Line(flag);
     linesRy.push(l);
   }
 
@@ -115,14 +114,14 @@ export function initCanvas() {
     ctx.clearRect(0, 0, cw, ch);
 
     for (let i = 0; i < linesRy.length; i++) {
-      let l = linesRy[i];
+      const l = linesRy[i];
       l.draw();
       l.update();
     }
     for (let i = 0; i < linesRy.length; i++) {
-      let l = linesRy[i];
+      const l = linesRy[i];
       for (let j = i + 1; j < linesRy.length; j++) {
-        let l1 = linesRy[j];
+        const l1 = linesRy[j];
         Intersect2lines(l, l1);
       }
     }
@@ -131,8 +130,8 @@ export function initCanvas() {
   function Init() {
     linesRy.length = 0;
     for (let i = 0; i < linesNum; i++) {
-      let flag = i % 2 === 0 ? "h" : "v";
-      let l = new Line(flag);
+      const flag = i % 2 === 0 ? 'h' : 'v';
+      const l = new Line(flag);
       linesRy.push(l);
     }
 
@@ -147,35 +146,38 @@ export function initCanvas() {
     Draw();
   }
 
-  setTimeout(function() {
+  setTimeout(() => {
     Init();
   }, 15);
 
   function Intersect2lines(l1, l2) {
-    let p1 = l1.a,
-      p2 = l1.b,
-      p3 = l2.a,
-      p4 = l2.b;
-    let denominator =
-      (p4.y - p3.y) * (p2.x - p1.x) - (p4.x - p3.x) * (p2.y - p1.y);
-    let ua =
-      ((p4.x - p3.x) * (p1.y - p3.y) - (p4.y - p3.y) * (p1.x - p3.x)) /
-      denominator;
-    let ub =
-      ((p2.x - p1.x) * (p1.y - p3.y) - (p2.y - p1.y) * (p1.x - p3.x)) /
-      denominator;
-    let x = p1.x + ua * (p2.x - p1.x);
-    let y = p1.y + ua * (p2.y - p1.y);
+    const p1 = l1.a;
+
+
+    const p2 = l1.b;
+
+
+    const p3 = l2.a;
+
+
+    const p4 = l2.b;
+    const denominator = (p4.y - p3.y) * (p2.x - p1.x) - (p4.x - p3.x) * (p2.y - p1.y);
+    const ua = ((p4.x - p3.x) * (p1.y - p3.y) - (p4.y - p3.y) * (p1.x - p3.x))
+      / denominator;
+    const ub = ((p2.x - p1.x) * (p1.y - p3.y) - (p2.y - p1.y) * (p1.x - p3.x))
+      / denominator;
+    const x = p1.x + ua * (p2.x - p1.x);
+    const y = p1.y + ua * (p2.y - p1.y);
     if (ua > 0 && ub > 0) {
       markPoint({
-        x: x,
-        y: y
+        x,
+        y,
       });
     }
   }
 
   function markPoint(p) {
-    ctx.fillStyle = "whitesmoke";
+    ctx.fillStyle = 'whitesmoke';
     ctx.beginPath();
     ctx.arc(p.x, p.y, 2, 0, 2 * Math.PI);
     ctx.fill();
