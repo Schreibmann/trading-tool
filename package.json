@@ -6,12 +6,12 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "hoek": "^5.0.3",
-    "react": "^16.4.1",
-    "react-awesome-modal": "^2.0.3",
-    "react-dom": "^16.4.1",
-    "react-redux": "^5.0.7",
-    "react-scripts": "^1.1.4",
-    "redux": "^4.0.0",
+    "react": "^16.6.0",
+    "react-awesome-modal": "^2.0.5",
+    "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "react-scripts": "^1.1.5",
+    "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -21,10 +21,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint": "^5.3.0",
+    "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1"
   }
 }
