@@ -2,19 +2,19 @@ import {
   ADD_TRADING_ITEM,
   DELETE_TRADING_ITEM,
   SET_CRYPTO,
-  SET_CURRENCY
-} from "../actions/types";
+  SET_CURRENCY,
+} from '../actions/types';
 
-const initialState = [{ crypto: "BTC", currency: "USD" }];
+const initialState = [{ crypto: 'BTC', currency: 'USD' }];
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_TRADING_ITEM:
-      return [...state, { crypto: "BTC", currency: "USD" }];
+      return [...state, { crypto: 'BTC', currency: 'USD' }];
     case DELETE_TRADING_ITEM:
       return [...state.filter((item, idx) => idx !== action.payload)];
     case SET_CRYPTO:
-      let newState = state;
+      const newState = state;
       newState[action.id].crypto = action.value;
       return [...newState];
     default:

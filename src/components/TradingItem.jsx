@@ -26,6 +26,13 @@ class TradingItem extends Component {
     this.updatePairSummary(this.props.pair);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(nextProps, prevState);
+
+    // Return null to indicate no change to state.
+    return null;
+  }
+
   symbols = {
     USD: "$",
     RUB: "₽",
@@ -37,11 +44,13 @@ class TradingItem extends Component {
     USDT: "USDT",
     ETH: "ETH"
   };
-
+/*
   componentWillReceiveProps(newProps) {
     this.setAvgPrice(newProps.pair, this.state.avgPricePeriod);
     this.updatePairSummary(newProps.pair);
   }
+*/
+  
 
   render() {
     let pair = `${this.props.crypto}_${this.props.currency}`;
@@ -78,7 +87,6 @@ class TradingItem extends Component {
             setAvgPricePeriod={event => this.setAvgPricePeriod(event)}
             dealProfit={this.state.dealProfit}
             canSpend={this.state.canSpend}
-            status={this.state.status}
           />
           <MarketOrders
             pair={pair}

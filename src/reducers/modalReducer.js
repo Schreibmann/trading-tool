@@ -1,16 +1,16 @@
-import { SHOW_MODAL, HIDE_MODAL } from "../actions/types";
+import { SHOW_MODAL, HIDE_MODAL } from '../actions/types';
 
 const initialState = {
   show: false,
-  text: ""
+  text: '',
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case SHOW_MODAL:
       return {
         show: true,
-        text: action.text
+        text: action.text,
       };
     case HIDE_MODAL:
       return initialState;
