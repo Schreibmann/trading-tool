@@ -1,17 +1,21 @@
-import React, { Component } from "react";
-import Orders from "./Orders.jsx";
-import { getOrderBook } from "../lib/apiCalls.js";
+import React, { Component } from 'react';
+import Orders from './Orders.jsx';
+import { getOrderBook } from '../lib/apiCalls.js';
 
 class MarketOrders extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
     };
 
     this.updateOrderBook();
   }
+
+ 
+
+  componentWillMount() {}
 
   componentWillReceiveProps(newProps) {
     if (newProps.autoRefresh && !this.intervalId) {
@@ -22,12 +26,11 @@ class MarketOrders extends Component {
     } else this.updateOrderBook();
   }
 
-  componentWillMount() {}
-
   componentWillUnmount() {
     clearInterval(this.intervalId);
     this.intervalId = null;
   }
+
   /*
 updateOrderBook() {
   let orderBook = getOrderBook(this.props.pair);
@@ -58,11 +61,11 @@ updateOrderBook() {
   }
 }
 
-MarketOrders.prototype.updateOrderBook = function() {
-  let orderBook = getOrderBook(this.props.pair);
-  orderBook.then(data => {
+MarketOrders.prototype.updateOrderBook = function () {
+  const orderBook = getOrderBook(this.props.pair);
+  orderBook.then((data) => {
     this.setState({
-      data: data
+      data,
     });
   });
 };
