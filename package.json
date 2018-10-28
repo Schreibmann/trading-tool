@@ -24,7 +24,6 @@
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "hoek": "^5.0.3",
-<<<<<<< HEAD
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
@@ -97,24 +96,6 @@
   },
   "devDependencies": {
     "eslint": "^5.8.0",
-=======
-    "react": "^16.6.0",
-    "react-awesome-modal": "^2.0.5",
-    "react-dom": "^16.6.0",
-    "react-redux": "^5.1.0",
-    "react-scripts": "^1.1.5",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "eslint": "^5.7.0",
->>>>>>> redux-way
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
