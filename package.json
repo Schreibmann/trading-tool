@@ -17,6 +17,7 @@
     "heroku-postbuild": "npm run production"
   },
   "author": "Schreibmann",
+  "homepage": "http://trading-tool.pro",
   "license": "MIT",
   "jest": {
     "setupFiles": [
