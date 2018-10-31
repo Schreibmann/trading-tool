@@ -1,0 +1,879 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"s",
+				"store\tbool "
+			],
+			[
+				"togg",
+				"toggleConsoleView\t{} "
+			],
+			[
+				"sh",
+				"showConsole\t{} "
+			],
+			[
+				"fet",
+				"fetchProductsData\tfn "
+			],
+			[
+				"se",
+				"setFormMode"
+			],
+			[
+				"dele",
+				"deleteUser\t? "
+			],
+			[
+				"de",
+				"deleteUser\t? "
+			],
+			[
+				"set",
+				"setFormMode\t? "
+			],
+			[
+				"r",
+				"reset.css"
+			],
+			[
+				"n",
+				"normalize.css"
+			],
+			[
+				"new",
+				"newProps\t{} "
+			],
+			[
+				"fi",
+				"fillForm\tfn "
+			],
+			[
+				"edit",
+				"editUser\t? "
+			],
+			[
+				"add",
+				"addUser\t? "
+			],
+			[
+				"map",
+				"mapStateToProps\tfn "
+			],
+			[
+				"ha",
+				"handleEditClick"
+			],
+			[
+				"user",
+				"userList\t? "
+			],
+			[
+				"u",
+				"userFormActions.js"
+			],
+			[
+				"cl",
+				"clearValues\tfn "
+			],
+			[
+				"use",
+				"userForm\t? "
+			],
+			[
+				"h",
+				"HeaderTitle"
+			],
+			[
+				"fun",
+				"func\t? "
+			],
+			[
+				"e",
+				"editUserFormActions.js"
+			],
+			[
+				"comp",
+				"composedEnhancers\t? "
+			],
+			[
+				"t",
+				"types.js"
+			],
+			[
+				"inpu",
+				"inputId\t? "
+			],
+			[
+				"cur",
+				"cursor\tproperty"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"co",
+				"collapse\tborder-collapse"
+			],
+			[
+				"bor",
+				"border-collapse\tproperty"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"in",
+				"inline-flex\tdisplay"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"border",
+				"border-radius\tproperty"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"mar",
+				"margin-left\tproperty"
+			],
+			[
+				"pos",
+				"position\tproperty"
+			],
+			[
+				"usr",
+				"usrId"
+			],
+			[
+				"p",
+				"propTypes.js"
+			],
+			[
+				"con",
+				"containers/"
+			],
+			[
+				"prop",
+				"prop-types"
+			],
+			[
+				"page",
+				"Page"
+			],
+			[
+				"is",
+				"isActionsPage\t? "
+			],
+			[
+				"subm",
+				"submitButtonStyle"
+			],
+			[
+				"Sh",
+				"ShareButtons"
+			],
+			[
+				"shar",
+				"shareButton"
+			],
+			[
+				"share",
+				"shareWindow"
+			],
+			[
+				"us",
+				"userId"
+			],
+			[
+				"va",
+				"validEmail"
+			],
+			[
+				"U",
+				"UPDATE_USER\tstr "
+			],
+			[
+				"ap",
+				"API_PATH"
+			],
+			[
+				"res",
+				"response\t{} "
+			],
+			[
+				"cli",
+				"client\t? "
+			],
+			[
+				"client",
+				"Client"
+			],
+			[
+				"f",
+				"final.css"
+			],
+			[
+				"sub",
+				"submitButtonIsActive"
+			],
+			[
+				"input",
+				"inputValue"
+			],
+			[
+				"S",
+				"ShareStep\t? "
+			],
+			[
+				"pri",
+				"priceRetail"
+			],
+			[
+				"sor",
+				"sortedData\t? "
+			],
+			[
+				"Trad",
+				"TradingMode\tfn "
+			],
+			[
+				"pro",
+				"prototype\t{} "
+			],
+			[
+				"on",
+				"onAddCart"
+			],
+			[
+				"uni",
+				"unitCount"
+			],
+			[
+				"un",
+				"unitCount"
+			],
+			[
+				"ac",
+				"activeUnitMain"
+			],
+			[
+				"a",
+				"activeUnitMain"
+			],
+			[
+				"pr",
+				"props"
+			],
+			[
+				"d",
+				"div\tdiv"
+			],
+			[
+				"P",
+				"ProductCount"
+			],
+			[
+				"Pr",
+				"ProductCard"
+			],
+			[
+				"prod",
+				"productSection"
+			],
+			[
+				"compo",
+				"componentWillMount"
+			],
+			[
+				"id",
+				"idx"
+			],
+			[
+				"Pro",
+				"ProductsSection"
+			],
+			[
+				"A",
+				"appContainer.js"
+			],
+			[
+				"c",
+				"containers/"
+			],
+			[
+				"Set",
+				"SET_CRYPTO"
+			],
+			[
+				"hide",
+				"hideApiKeys"
+			],
+			[
+				"sho",
+				"show"
+			],
+			[
+				"mo",
+				"modalReducer"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"ta",
+				"tabId"
+			],
+			[
+				"l",
+				"li\tTag"
+			],
+			[
+				"mag",
+				"margin-top"
+			],
+			[
+				"open",
+				"openedOrders"
+			],
+			[
+				"tar",
+				"tradingItemsList"
+			],
+			[
+				"nex",
+				"nextProps"
+			],
+			[
+				"key",
+				"key"
+			],
+			[
+				"api",
+				"apiKeys"
+			],
+			[
+				"show",
+				"showApiKeys"
+			],
+			[
+				"Api",
+				"ApiKeysForm"
+			],
+			[
+				"bittr",
+				"bittrexPrice"
+			],
+			[
+				"balance",
+				"balance"
+			],
+			[
+				"print",
+				"printEvalBalances"
+			],
+			[
+				"bin",
+				"binancePrice"
+			],
+			[
+				"bal",
+				"balanceInBTCatBittrex"
+			],
+			[
+				"ba",
+				"binanceData"
+			],
+			[
+				"bit",
+				"bittrexData"
+			],
+			[
+				"b",
+				"bittrex"
+			],
+			[
+				"let",
+				"let"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"th",
+				"then"
+			],
+			[
+				"ini",
+				"initConfigResult"
+			],
+			[
+				"AP",
+				"API_PATH"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"clas",
+				"className"
+			],
+			[
+				"API",
+				"API_PATH"
+			],
+			[
+				"cfg",
+				"cfg"
+			],
+			[
+				"tim",
+				"timeConverter"
+			],
+			[
+				"get",
+				"getDeals"
+			],
+			[
+				"bo",
+				"botInterval"
+			],
+			[
+				"tra",
+				"trading"
+			],
+			[
+				"sy",
+				"symbols"
+			],
+			[
+				"su",
+				"summary"
+			],
+			[
+				"av",
+				"avgPrice"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"avg",
+				"avgPrice"
+			],
+			[
+				"dea",
+				"dealProfit"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"fl",
+				"flex"
+			],
+			[
+				"cons",
+				"consoleText"
+			],
+			[
+				"stat",
+				"state"
+			],
+			[
+				"to",
+				"toggleConsoleView"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: div",
+				"Snippet: for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"Snippet",
+				"Snippet: Long Tag"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 428.0
+	},
+	"console":
+	{
+		"height": 224.0,
+		"history":
+		[
+			"-c",
+			"npm i -g eslint-config-airbnb-bundle",
+			"http://localhost:8000/addUser",
+			"curl -X POST -H \"Content-Type: application/json\" -d '{}' http://localhost:8000/addUser",
+			"$ curl -X POST -H \"Content-Type: application/json\" -d '{}' http://localhost:8000/addUser",
+			"curl -X POST -H \"Content-Type: application/json\" -d '{}' http://localhost:8000/addUser",
+			"false, null",
+			"npm install -g eslint",
+			"npm -i -g eslint",
+			"npm install -g eslint",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"npm install",
+			"npm start"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/actions",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/reducers"
+	],
+	"file_history":
+	[
+		"/C/srv/OSPanel/domains/tests/tt/test/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/components/TradingItem.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/components/TradingItemsList.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/actions/tradingItemsListActions.js",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/actions/apiKeysFormActions.js",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/components/App.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/config/Root.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/App.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/main.js",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/components/App.js",
+		"/C/srv/OSPanel/domains/tests/tt/test/app/assets/scss/main.scss",
+		"/C/srv/OSPanel/domains/tests/tt/test/.eslintrc",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Console.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/actions/tradingItemsListActions.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/reducers/tradingItemsListReducer.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/webpack/prod.config.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/webpack/dev.config.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/.babelrc",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/App.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/webpack/base.config.js",
+		"/C/srv/OSPanel/domains/tests/todo-app/webpack.config.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/webpack.config.js",
+		"/C/Users/necro/AppData/Local/Temp/Rar$DIa0.429/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/dist/index.html",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/TradingItem.jsx",
+		"/C/srv/OSPanel/domains/tests/todo-app/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/public/index.html",
+		"/C/srv/OSPanel/domains/tests/kinohod-app/src/index.html",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/store/store.js",
+		"/C/srv/OSPanel/domains/tests/kinohod-app/webpack.config.js",
+		"/C/srv/OSPanel/domains/tests/todo-app/.babelrc",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/postcss.config.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/registerServiceWorker.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/LatestDeals.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/public/cfg/config.json",
+		"/C/srv/OSPanel/domains/tests/todo-app/.eslintrc.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/.eslintrc.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-restricted-globals/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-config-airbnb/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/logo.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/MarketOrders.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Orders.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/SellOrders.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/TradingMode.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/lib/apiCalls.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/lib/scripts.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/config/webpack.config.dev.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/registerServiceWorker.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-config-airbnb/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/scripts/start.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-config-airbnb/base.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-config-airbnb/rules/react.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/node_modules/eslint-config-airbnb/legacy.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/config/env.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/config/paths.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/ManualTrading.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Header.jsx",
+		"/C/srv/OSPanel/domains/tests/kinohod-app/.eslintrc.js",
+		"/C/srv/OSPanel/domains/tests/kinohod-app/package.json",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Controls.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/.env.local",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Graph.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/CurrentOrders.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/Canvas.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/AutoTrading.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/ApiKeysForm.jsx",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/logo.svg",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/reducers/index.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/Main.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/Routing.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/index.css",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/index.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/.DS_Store",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/reducers/user.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/api/client.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/.eslintrc.json",
+		"/C/srv/OSPanel/domains/tests/screendesk/src/store/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/store.js",
+		"/C/srv/OSPanel/domains/tests/Redux-Table/src/store/store.js",
+		"/C/srv/OSPanel/domains/tests/screendesk/.editorconfig",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/App.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/reducers/apiKeysFormReducer.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/reducers/index.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/reducers/modalReducer.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/GraphTest.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/components/TradingItemsList.jsx",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/actions/apiKeysFormActions.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/actions/modalActions.js",
+		"/C/srv/OSPanel/domains/tests/tt/trading-tool/src/actions/tradingItemActions.js",
+		"/C/srv/OSPanel/domains/tests/petrovich-test-task/candles.js",
+		"/C/srv/OSPanel/domains/tests/petrovich-test-task/src/App.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/components/EditUserForm.jsx",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/containers/AppContainer.jsx",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/styles/main.css",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/package.json",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/build/asset-manifest.json",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/build/index.html",
+		"/C/srv/OSPanel/domains/tests/Redux-Table/README.md",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/public/index.html",
+		"/C/srv/OSPanel/domains/tests/petrovich-test-task/package.json",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/components/UserList.jsx",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/reducers/userFormReducer.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/store/store.js",
+		"/C/srv/OSPanel/domains/tests/Redux-Table/static/css/main.31969184.css",
+		"/C/srv/OSPanel/domains/tests/Redux-Table/static/js/main.8564042a.js",
+		"/C/srv/OSPanel/domains/tests/table/JsTask.pdf",
+		"/C/srv/OSPanel/domains/tests/express-rest-api-boilerplate/package.json",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/App.css",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/build/manifest.json",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/App.jsx",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/index.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/index.css",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/actions/userFormActions.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/components/AddUserButton.jsx",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/actions/types.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/reducers/index.js",
+		"/C/srv/OSPanel/domains/tests/aviasales-marketing-test-task/src/components/SubscribeStep.jsx",
+		"/C/srv/OSPanel/domains/tests/create-react-app-redux/src/modules/counter.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/actions/editUserFormActions.js",
+		"/C/srv/OSPanel/domains/tests/table/redux-table/src/reducers/editUserFormReducer.js",
+		"/C/srv/OSPanel/domains/tests/create-react-app-redux/src/modules/index.js",
+		"/C/srv/OSPanel/domains/tests/create-react-app-redux/src/store.js",
+		"/C/srv/OSPanel/domains/tests/aviasales-marketing-test-task/src/App.js",
+		"/C/srv/OSPanel/domains/tests/aviasales-marketing-test-task/src/components/ShareStep.jsx"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"symbo",
+			"eslin",
+			"vert"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 152.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 71.0
+	},
+	"output.exec":
+	{
+		"height": 190.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "trading-tool.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 240.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

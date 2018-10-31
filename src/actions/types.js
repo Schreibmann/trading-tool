@@ -1,8 +1,0 @@
-export const ADD_TRADING_ITEM = 'ADD_TRADING_ITEM';
-export const DELETE_TRADING_ITEM = 'DELETE_TRADING_ITEM';
-export const SHOW_MODAL = 'SHOW_MODAL';
-export const HIDE_MODAL = 'HIDE_MODAL';
-export const SHOW_API_KEYS_FORM = 'SHOW_API_KEYS_FORM';
-export const HIDE_API_KEYS_FORM = 'HIDE_API_KEYS_FORM';
-export const SET_CRYPTO = 'SET_CRYPTO';
-export const SET_CURRENCY = 'SET_CURRENCY';
