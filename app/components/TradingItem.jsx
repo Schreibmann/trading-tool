@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Graph from './Graph';
 import TradingMode from './TradingMode';
 import MarketOrders from './MarketOrders';
 import LatestDeals from './LatestDeals';
 import { getDeals, getPairSummary } from '../lib/apiCalls';
 
-class TradingItem extends Component {
+class TradingItem extends React.PureComponent {
  /*
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log(nextProps);
@@ -14,8 +14,8 @@ class TradingItem extends Component {
  state = {
    autoRefresh: false,
    avgPrice: {
-     buy: '',
-     sell: '',
+     buy: 'calculating...',
+     sell: 'calculating...',
    },
    avgPricePeriod: 30,
    canSpend: 1,
@@ -83,7 +83,7 @@ class TradingItem extends Component {
        * 10000,
        ) / 10000;
 
-       const { avgPrice } = this.state;
+       const avgPrice = {};
 
        avgPrice.buy = avgBuyPrice;
        avgPrice.sell = avgSellPrice;
@@ -165,7 +165,6 @@ class TradingItem extends Component {
            symbol={symbols[this.props.currency]}
            vol={this.state.summary.vol}
            volCurr={this.state.summary.vol_curr}
-           close={() => this.props.close()}
            toggleRefresh={() => this.toggleRefresh()}
          />
          <TradingMode

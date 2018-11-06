@@ -53,79 +53,75 @@ const PAIRS = [
   'KICK_ETH',
 ];
 
-class TradingMode extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+class TradingMode extends React.PureComponent {
+    state = {
       mode: 'Auto',
     };
-  }
 
-  onChangeCrypto(e) {
-    const pair = `${e.target.value}_${this.props.currency}`;
-    if (PAIRS.includes(pair) > -1) {
-      this.props.setCrypto(this.props.id, e.target.value);
-    } else {
-      e.preventDefault();
-      alert(`Pair ${pair} not available at stock.`);
+    onChangeCrypto(e) {
+      const pair = `${e.target.value}_${this.props.currency}`;
+      if (PAIRS.includes(pair) > -1) {
+        this.props.setCrypto(this.props.id, e.target.value);
+      } else {
+        e.preventDefault();
+        alert(`Pair ${pair} not available at stock.`);
+      }
     }
-  }
 
-  onChangeCurrency(e) {
-    const pair = `${this.props.crypto}_${e.target.value}`;
-    if (PAIRS.includes(pair) > -1) {
-      this.props.setCurrency(this.props.id, e.target.value);
-    } else {
-      e.preventDefault();
-      alert(`Pair ${pair} not available at stock.`);
+    onChangeCurrency(e) {
+      const pair = `${this.props.crypto}_${e.target.value}`;
+      if (PAIRS.includes(pair) > -1) {
+        this.props.setCurrency(this.props.id, e.target.value);
+      } else {
+        e.preventDefault();
+        alert(`Pair ${pair} not available at stock.`);
+      }
     }
-  }
 
-  render() {
-    const mode = this.state.mode === 'Manual' ? (
-      <ManualTrading
-        id={this.props.id}
-        pair={this.props.pair}
-        crypto={this.props.crypto}
-        currency={this.props.currency}
-        symbol={this.props.symbol}
-        setCrypto={e => this.onChangeCrypto(e)}
-        setCurrency={e => this.onChangeCurrency(e)}
-      />
-    ) : (
-      <AutoTrading
-        id={this.props.id}
-        pair={this.props.pair}
-        crypto={this.props.crypto}
-        currency={this.props.currency}
-        symbol={this.props.symbol}
-        setCrypto={e => this.onChangeCrypto(e)}
-        setCurrency={e => this.onChangeCurrency(e)}
-        avgPricePeriod={this.props.avgPricePeriod}
-        setAvgPricePeriod={event => this.props.setAvgPricePeriod(event)}
-      />
-    );
+    render() {
+      const mode = this.state.mode === 'Manual' ? (
+        <ManualTrading
+          id={this.props.id}
+          pair={this.props.pair}
+          crypto={this.props.crypto}
+          currency={this.props.currency}
+          symbol={this.props.symbol}
+          setCrypto={e => this.onChangeCrypto(e)}
+          setCurrency={e => this.onChangeCurrency(e)}
+        />
+      ) : (
+        <AutoTrading
+          id={this.props.id}
+          pair={this.props.pair}
+          crypto={this.props.crypto}
+          currency={this.props.currency}
+          symbol={this.props.symbol}
+          setCrypto={e => this.onChangeCrypto(e)}
+          setCurrency={e => this.onChangeCurrency(e)}
+          avgPricePeriod={this.props.avgPricePeriod}
+          setAvgPricePeriod={event => this.props.setAvgPricePeriod(event)}
+        />
+      );
 
-    return (
-      <div className="trading-mode-item app-block__item__elem">
-        <div className="blockheader shadowed left">
-          <label>Trading mode</label>
-          <select
-            className="trading-mode"
-            id="trding-mode"
-            value={this.state.mode}
-            onChange={event => this.setMode(event)}
-          >
-            <option value="Manual">Manual</option>
-            <option value="Auto">Auto</option>
-          </select>
+      return (
+        <div className="trading-mode-item app-block__item__elem">
+          <div className="blockheader shadowed left">
+            <label>Trading mode</label>
+            <select
+              className="trading-mode"
+              id="trding-mode"
+              value={this.state.mode}
+              onChange={event => this.setMode(event)}
+            >
+              <option value="Manual">Manual</option>
+              <option value="Auto">Auto</option>
+            </select>
+          </div>
+          <div className="trading-mode__inner">{mode}</div>
+          {/* <CurrentOrders orders={this.state.userOrders} updateOrders={() => this.updateUserOrders()}/> */}
         </div>
-        <div className="trading-mode__inner">{mode}</div>
-        {/* <CurrentOrders orders={this.state.userOrders} updateOrders={() => this.updateUserOrders()}/> */}
-      </div>
-    );
-  }
+      );
+    }
 }
 
 TradingMode.prototype.setMode = function(e) {

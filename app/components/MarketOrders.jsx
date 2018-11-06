@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import Orders from './Orders.jsx';
-import { getOrderBook } from '../lib/apiCalls.js';
+import React from 'react';
+import Orders from './Orders';
+import { getOrderBook } from '../lib/apiCalls';
 
-class MarketOrders extends Component {
-  constructor(props) {
-    super(props);
+class MarketOrders extends React.PureComponent {
+  state = {
+    data: [],
+  };
 
-    this.state = {
-      data: [],
-    };
-
+  componentDidMount() {
     this.updateOrderBook();
   }
-
- 
-
-  componentWillMount() {}
 
   componentWillReceiveProps(newProps) {
     if (newProps.autoRefresh && !this.intervalId) {
@@ -31,16 +25,15 @@ class MarketOrders extends Component {
     this.intervalId = null;
   }
 
-  /*
-updateOrderBook() {
-  let orderBook = getOrderBook(this.props.pair);
-  orderBook.then(data => {
-    this.setState({
-      data: data
+  updateOrderBook() {
+    const orderBook = getOrderBook(this.props.pair);
+    orderBook.then((data) => {
+      this.setState({
+        data,
+      });
     });
-  });
-}
-*/
+  }
+
   render() {
     return (
       <div className="market-orders-wrapper">
@@ -60,14 +53,5 @@ updateOrderBook() {
     );
   }
 }
-
-MarketOrders.prototype.updateOrderBook = function () {
-  const orderBook = getOrderBook(this.props.pair);
-  orderBook.then((data) => {
-    this.setState({
-      data,
-    });
-  });
-};
 
 export default MarketOrders;

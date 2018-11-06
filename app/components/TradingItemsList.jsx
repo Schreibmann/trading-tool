@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TradingItem from './TradingItem';
-import { deleteTradingItem } from '../actions/tradingItemsListActions';
 
 const TradingItemsList = (props) => {
   const {
-    itemsList, deleteTradingItem, setCrypto, setCurrency,
+    itemsList,
   } = props;
 
   const items = itemsList.map((item, idx) => (
@@ -15,13 +14,14 @@ const TradingItemsList = (props) => {
       crypto={item.crypto}
       currency={item.currency}
       pair={`${item.crypto}_${item.currency}`}
-      close={deleteTradingItem}
-      setCrypto={setCrypto}
-      setCurrency={setCurrency}
     />
   ));
 
-  return <div className="trading-items app-block">{items}</div>;
+  return (
+    <div className="app__content">
+      <div className="trading-items app-block">{items}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = state => ({
@@ -30,5 +30,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteTradingItem },
 )(TradingItemsList);

@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { deleteTradingItem } from '../actions/tradingItemsListActions';
 
-class Graph extends Component {
+class Graph extends React.PureComponent {
   render() {
     return (
       <div
@@ -8,9 +10,10 @@ class Graph extends Component {
         className="graph-item app-block__item__elem"
       >
         <span
+          role="button"
           className="close shadowed"
           title="Close"
-          onClick={() => this.props.close()}
+          onClick={() => this.props.deleteTradingItem(this.props.id)}
         />
         <span className="pair-info">
           <strong>{`[${this.props.pair}] `}</strong>
@@ -28,7 +31,7 @@ class Graph extends Component {
             onChange={() => this.props.toggleRefresh()}
           />
           <label htmlFor={`refresh_id${this.props.id}`} title="refresh on/off">
-            refresh
+            autorefresh
           </label>
         </span>
         <iframe
@@ -52,4 +55,7 @@ class Graph extends Component {
   }
 }
 
-export default Graph;
+export default connect(
+  null,
+  { deleteTradingItem },
+)(Graph);
