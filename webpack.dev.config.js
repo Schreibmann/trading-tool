@@ -5,7 +5,7 @@ const devConfig = {
   mode: 'development',
   devServer: {
     hot: true,
-    contentBase: './dist',
+    contentBase: __dirname + '/dist'
   },
   devtool: 'source-map',
 };
