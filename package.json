@@ -4,10 +4,9 @@
   "description": "A tool for EXMO exchange. Based on exmo api",
   "main": "main.js",
   "scripts": {
-    "start": "webpack-dev-server --config=webpack.dev.js --hot",
-    "start:reload": "webpack-dev-server --config=webpack.dev.js",
-    "build": "webpack --config=webpack.prod.js",
     "clean": "rimraf dist",
+    "build": "npm run clean && webpack --mode production --config webpack.prod.config.js",
+    "dev": "webpack-dev-server --mode development --open --hot --config webpack.dev.config.js",
     "lint": "eslint ./app/**/**.js",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -38,6 +37,7 @@
     }
   },
   "dependencies": {
+    "autoprefixer": "^9.3.1",
     "crypto-js": "^3.1.9-1",
     "react": "16.5.2",
     "react-awesome-modal": "^2.0.5",
@@ -85,6 +85,7 @@
     "node-sass": "4.9.4",
     "open-browser-webpack-plugin": "0.0.5",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.5.2",
     "regenerator-runtime": "0.12.1",
