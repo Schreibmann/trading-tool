@@ -7,6 +7,7 @@
 body {
     font-size: 14pt;
     font-family: 'Pathway Gothic One', sans-serif;
+    margin: 0;
 }
 
 body::-webkit-scrollbar-track {
@@ -37,7 +38,7 @@ select:active {
 
 canvas {
     Position: fixed;
-    top: 50px;
+    top: 0;
     left: 0;
     background-color: #eee;
     display: block; //margin: 0 auto;
@@ -806,21 +807,21 @@ input:focus:-ms-input-placeholder {
 
 
 
-/* webkit scrollbar style */
+/* scrollbar style */
 
 .order-content__scrollable::-webkit-scrollbar-track,
-#console::-webkit-scrollbar-track {
+#console::-webkit-scrollbar-track, .tooltip span::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .order-content__scrollable::-webkit-scrollbar,
-#console::-webkit-scrollbar {
+#console::-webkit-scrollbar, .tooltip span::-webkit-scrollbar {
     width: 7px;
     background-color: #F6F6F6;
 }
 
 .order-content__scrollable::-webkit-scrollbar-thumb,
-#console::-webkit-scrollbar-thumb {
+#console::-webkit-scrollbar-thumb, .tooltip span::-webkit-scrollbar-thumb {
     background-color: lightblue;
 
     background-image: -webkit-gradient(linear, 0 0, 0 100%,
@@ -830,7 +831,7 @@ input:focus:-ms-input-placeholder {
 
 
 
-/* webkit scrollbar style end*/
+/* scrollbar style end*/
 
 .order-content__scrollable label {
     margin-left: 5px;
@@ -978,7 +979,7 @@ ul {
 .tooltip span {
     position: absolute;
     /* Выводим элемент из потока */
-    margin-left: -30000px;
+    display: none;
     /* И прячем далеко за краем экрана */
     background-color: whitesmoke;
     /* Фон всплывающего блока*/
@@ -995,10 +996,12 @@ ul {
 
 .tooltip:hover span {
     /* При наведении */
-    margin-left: 0;
+    display: block;
+    overflow-y: auto;
     /* Возвращаем из далекого заэкранного края блок на место */
     width: auto;
-    /* Задаем ширину */
+    height: 600px;
+    /* Задаем ширину и высоту */
     z-index: 9999;
     /* Помещаем на самый верх */
     /* Позиционируем относительно родительского блока */
@@ -1008,7 +1011,7 @@ ul {
     /* Отступ слева */
 }
 
-.tooltip span:before {
+.tooltip span::after {
     content: '';
     /* Добавили контент */
     width: 0;

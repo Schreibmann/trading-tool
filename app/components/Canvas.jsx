@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { initCanvas } from '../lib/scripts';
 
-class Canvas extends Component {
+class Canvas extends React.PureComponent {
   componentDidMount() {
     setTimeout(() => initCanvas(), 15);
   }

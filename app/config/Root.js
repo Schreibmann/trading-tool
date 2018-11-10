@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Route, Redirect, Switch,
+  HashRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
 import WithBackground from '../hocs/WithBackground';
 import App from '../components/App';
@@ -12,6 +12,7 @@ const Root = () => {
       <Switch>
         <Route path="/" component={WithBackground(App)} exact />
         <Route path="/test" component={WithBackground(Test)} exact />
+        <Redirect to="/" />
       </Switch>
     </Router>
   );
