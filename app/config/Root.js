@@ -12,7 +12,6 @@ const Root = () => {
       <Switch>
         <Route path="/" component={WithBackground(App)} exact />
         <Route path="/test" component={WithBackground(Test)} exact />
-        <Redirect to="/" />
       </Switch>
     </Router>
   );

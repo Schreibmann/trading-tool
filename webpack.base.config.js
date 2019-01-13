@@ -9,6 +9,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash].js',
+    //publicPath: 'http://trading-tool.pro/new',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', 'css', 'scss'],
@@ -91,4 +93,3 @@ module.exports = {
 
   ],
 };
-

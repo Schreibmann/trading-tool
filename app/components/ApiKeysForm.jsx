@@ -73,13 +73,15 @@ class ApiKeysForm extends React.PureComponent {
             id="confirm"
             className="primary"
             onClick={() => this.setApiKeys()}
-          >✔
+          >
+✔
           </button>
           <button
             type="button"
             id="clear"
             onClick={() => hideApiKeysForm()}
-          >✖
+          >
+✖
           </button>
         </div>
       </div>
@@ -88,6 +90,5 @@ class ApiKeysForm extends React.PureComponent {
 }
 
 export default connect(
-  null,
-  { hideApiKeysForm },
+  null, { hideApiKeysForm },
 )(ApiKeysForm);

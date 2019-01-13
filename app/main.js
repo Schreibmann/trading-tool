@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import Root from './config/Root';
 
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <Component />

@@ -273,7 +273,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
     this.addLog(`Checking settings for pair ${pair}`);
     fetch(`${API_PATH}pair_settings`) // Смотрим настройки пары
       .then(res => res.json())
-      .then((data) => {
+      .then(data => {
         if (data.hasOwnProperty('error')) {
           this.addLog(
             `Getting pair info for ${pair} failed with error: ${data.error}`,
@@ -288,7 +288,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
         // Получаем все ордера
         this.addLog('Checking opened orders');
         const openedOrders = api_query('user_open_orders', {}).then(
-          (res) => {
+          res => {
             const data = JSON.parse(res);
             if (data.error) {
               this.addLog(
@@ -303,7 +303,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
 
         // Есть ли открытые ордера
         openedOrders.then(
-          (orders) => {
+          orders => {
             if (typeof orders === 'undefined') return null;
             if (typeof orders[pair] !== 'undefined') {
               // Есть ордера по этой паре
@@ -328,7 +328,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
                   this.addLog('Ckecking buy order'); // Есть ли частично исполненные
                   api_query('order_trades', { order_id: order.order_id }) // Смотрим состояние ордера
                     .then(
-                      (res) => {
+                      res => {
                         if (res.indexOf('Error 50304') <= -1) {
                           // Частично исполнен, выходим
                           this.addLog('Quit. Wainig buy orders to be done.');
@@ -345,7 +345,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
                             api_query('order_cancel', {
                               order_id: order.order_id,
                             }).then(
-                              (res) => {
+                              res => {
                                 res.result
                                   ? this.addLog('Success. Order cancelled')
                                   : this.addLog(
@@ -378,7 +378,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
               // Ордеров по выбранной паре нет. Создаем (если можем)
               this.addLog('No orders. Trying to create some...');
               api_query('user_info', {}).then(
-                (res) => {
+                res => {
                   const data = JSON.parse(res);
                   // Есть ли крипта на продажу в количестве больше минимального
                   if (data.balances[crypto] >= CURRENCY_1_MIN_QUANTITY) {
@@ -398,7 +398,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
                         type: 'sell',
                       },
                     ).then(
-                      (res) => {
+                      res => {
                         const data = JSON.parse(res);
                         if (data.hasOwnProperty('error')) {
                           this.addLog(data.error);
@@ -415,8 +415,8 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
                     if (parseFloat(data.balances[curr]) >= CAN_SPEND) {
                       // Бабло есть. Вычисляем среднюю стоимость за указанный период
                       const deals = getDeals(pair, 10000, 'buy'); // Список завершенных сделок на покупку
-                      deals.then((data) => {
-                        const actualDeals = data.filter((deal) => {
+                      deals.then(data => {
+                        const actualDeals = data.filter(deal => {
                           // Выбираем сделки за указанный период
                           const now = new Date();
                           const timePassed = now.getUnixTimestamp()
@@ -445,7 +445,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
                             type: 'buy',
                           }) // Создаем ордер
                             .then(
-                              (res) => {
+                              res => {
                                 const data = JSON.parse(res);
                                 if (data.hasOwnProperty('error')) {
                                   this.addLog(data.error);
@@ -482,7 +482,7 @@ AutoTrading.prototype.trade = function (curr, crypto, pair) {
 
         );
       })
-      .catch((err) => {
+      .catch(err => {
         //
         this.addLog(err);
       });

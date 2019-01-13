@@ -5,20 +5,20 @@ import {
   SET_CURRENCY,
 } from './types';
 
-export const addTradingItem = () => (dispatch) => {
+export const addTradingItem = () => dispatch => {
   dispatch({
     type: ADD_TRADING_ITEM,
   });
 };
 
-export const deleteTradingItem = id => (dispatch) => {
+export const deleteTradingItem = id => dispatch => {
   dispatch({
     type: DELETE_TRADING_ITEM,
     payload: id,
   });
 };
 
-export const setCrypto = (itemId, val) => (dispatch) => {
+export const setCrypto = (itemId, val) => dispatch => {
   dispatch({
     type: SET_CRYPTO,
     id: itemId,
@@ -26,7 +26,7 @@ export const setCrypto = (itemId, val) => (dispatch) => {
   });
 };
 
-export const setCurrency = (itemId, val) => (dispatch) => {
+export const setCurrency = (itemId, val) => dispatch => {
   dispatch({
     type: SET_CURRENCY,
     id: itemId,
